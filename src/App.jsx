@@ -35,15 +35,15 @@ export default function App() {
     },
     {
       t: "2. Training & Campaign Preparation",
-      d: "We train dedicated outbound agents, build tailored scripts, configure dialer systems, and prepare campaign workflows based on your market.",
+      d: "We train dedicated outbound agents, build tailored scripts, configure dialer systems, and prepare campaign workflows.",
     },
     {
       t: "3. Outbound Execution & Appointment Booking",
-      d: "We conduct structured B2B telesales outreach to decision-makers, qualify prospects, and book high-quality meetings on your behalf.",
+      d: "We conduct structured B2B telesales outreach to decision-makers and book high-quality meetings.",
     },
     {
-      t: "4. Meeting Coordination & Pre-Meeting Briefing",
-      d: "We schedule meetings as face-to-face, video conferences, or phone calls based on preference, send calendar invites, and provide full pre-meeting briefing including company insights, prospect context, and agenda to maximize closing probability.",
+      t: "4. Meeting Coordination & Briefing",
+      d: "We send calendar invites and provide full pre-meeting briefing.",
     },
   ];
 
@@ -59,10 +59,10 @@ export default function App() {
           </div>
 
           <nav className="hidden md:flex gap-8 text-sm text-white/70">
-            <a href="#services" className="hover:text-white">Services</a>
-            <a href="#proof" className="hover:text-white">Results</a>
-            <a href="#industries" className="hover:text-white">Industries</a>
-            <a href="#process" className="hover:text-white">Process</a>
+            <a href="#services">Services</a>
+            <a href="#proof">Results</a>
+            <a href="#industries">Industries</a>
+            <a href="#process">Process</a>
           </nav>
 
           <button className="px-5 py-2 rounded-xl bg-emerald-500 text-black font-semibold">
@@ -107,9 +107,76 @@ export default function App() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-6 p-5 rounded-2xl bg-white/5 border border-white/10">
+              <p className="text-sm text-white/60">
+                Designed for organisations seeking high-quality, sales-ready appointments.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+      <section id="services" className="px-6 py-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10">Core Services</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s) => (
+              <div key={s} className="p-6 rounded-3xl bg-white/5 border border-white/10">
+                <h3 className="text-emerald-400 font-semibold text-lg mb-3">{s}</h3>
+                <p className="text-white/60 text-sm">
+                  Structured outbound campaigns designed to reach decision-makers.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="industries" className="px-6 py-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10">Industries We Work With</h2>
+          <div className="flex flex-wrap gap-3">
+            {industries.map((i) => (
+              <span key={i} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm">
+                {i}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="px-6 py-20 bg-white/5 border-y border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10">How It Works</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {process.map((p) => (
+              <div key={p.t} className="p-6 rounded-3xl bg-black/20 border border-white/10">
+                <h3 className="font-semibold text-emerald-400 mb-3">{p.t}</h3>
+                <p className="text-white/60 text-sm">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to build a predictable pipeline?
+          </h2>
+          <p className="text-white/60 mb-8">
+            Let’s launch your outbound system and start booking qualified B2B meetings.
+          </p>
+          <button className="px-8 py-4 rounded-2xl bg-emerald-500 text-black font-semibold">
+            Book Strategy Call
+          </button>
+        </div>
+      </section>
+
+      <footer className="px-6 py-10 text-center text-white/40 border-t border-white/10">
+        © {new Date().getFullYear()} Leadex — B2B Appointment Setting Agency
+      </footer>
     </div>
   );
 }
