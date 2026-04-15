@@ -28,48 +28,43 @@ export default function App() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="blob"></div>
+        <div className="bgGlow"></div>
 
-        <h1 className="fadeUp">
-          We Build <span>Predictable B2B Pipelines</span> for Growth-Focused Companies
+        <h1 className="reveal">
+          We Build <span>Predictable B2B Revenue Systems</span>
         </h1>
 
-        <p className="fadeUp delay1">
-          LeadEX is a performance-driven outbound appointment setting agency. We connect you directly with decision-makers and deliver sales-ready meetings — not leads.
+        <p className="reveal delay1">
+          LeadEX is a performance-driven appointment setting agency that connects you with real decision-makers and books qualified sales meetings.
         </p>
 
-        <div className="heroBtns fadeUp delay2">
+        <div className="heroBtns reveal delay2">
           <button className="primary">Contact Us</button>
           <button className="secondary" onClick={() => scrollTo("services")}>
             Explore Services
           </button>
         </div>
-
-        <div className="miniProof fadeUp delay3">
-          Trusted for B2B outbound systems • SaaS • IT • Telecom • Cybersecurity
-        </div>
       </section>
 
       {/* RESULTS */}
-      <section id="results" className="stats fadeUp">
-        <div><h2>10K+</h2><p>Calls Monthly</p></div>
+      <section id="results" className="stats reveal">
+        <div><h2>10K+</h2><p>Monthly Calls</p></div>
         <div><h2>Qualified</h2><p>Decision Makers</p></div>
         <div><h2>100%</h2><p>B2B Focus</p></div>
-        <div><h2>&lt;1min</h2><p>Lead Response</p></div>
+        <div><h2>&lt;1min</h2><p>Response Time</p></div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="section fadeUp">
+      <section id="services" className="section reveal">
         <h2>Core Services</h2>
 
         <div className="grid">
           {[
-            ["Appointment Setting","We book qualified meetings directly with decision-makers."],
-            ["Cold Calling","High-volume outbound calling with trained SDRs."],
-            ["Lead Qualification","Filtering prospects into sales-ready opportunities."],
-            ["Decision Maker Outreach","Direct access to CEOs, Managers & Heads."],
-            ["Pipeline Building","Full outbound pipeline systems."],
-            ["Dedicated SDR Teams","Fully managed offshore sales teams."]
+            ["Appointment Setting","We book sales meetings with real decision-makers."],
+            ["Cold Calling","High-quality outbound calling campaigns."],
+            ["Lead Qualification","We filter and qualify real opportunities."],
+            ["Decision Maker Outreach","Direct access to CEOs & managers."],
+            ["Pipeline Building","Full outbound revenue systems."],
           ].map((s, i) => (
             <div key={i} className="card">
               <h3>{s[0]}</h3>
@@ -80,26 +75,26 @@ export default function App() {
       </section>
 
       {/* INDUSTRIES */}
-      <section id="industries" className="section fadeUp">
-        <h2>Industries We Serve</h2>
+      <section id="industries" className="section reveal">
+        <h2>Industries</h2>
 
         <div className="tags">
-          {["SaaS","Cybersecurity","IT Services","Telecom","Logistics","Energy","Consulting"].map((i, idx) => (
+          {["SaaS","Cybersecurity","IT Services","Telecom","Logistics","Energy"].map((i, idx) => (
             <span key={idx}>{i}</span>
           ))}
         </div>
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="section fadeUp">
+      <section id="process" className="section reveal">
         <h2>How It Works</h2>
 
         <div className="grid">
           {[
-            ["1. Strategy","We define ICP, offer positioning & targeting."],
-            ["2. Setup","Scripts, data, dialers, training."],
-            ["3. Execution","Outbound calling campaigns."],
-            ["4. Delivery","Booked qualified B2B meetings."]
+            ["1. Strategy","Define ICP + targeting"],
+            ["2. Setup","Scripts + data + training"],
+            ["3. Execution","Outbound campaigns"],
+            ["4. Delivery","Booked qualified meetings"]
           ].map((p, i) => (
             <div key={i} className="card">
               <h3>{p[0]}</h3>
@@ -110,15 +105,12 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section className="cta fadeUp">
-        <h2>Ready to build a scalable pipeline?</h2>
-        <p>Let’s turn outbound into predictable revenue growth.</p>
+      <section className="cta reveal">
+        <h2>Ready to scale predictable revenue?</h2>
         <button className="primary">Contact Us</button>
       </section>
 
-      <footer>
-        © {new Date().getFullYear()} LeadEX — B2B Appointment Setting Agency
-      </footer>
+      <footer>© {new Date().getFullYear()} LeadEX</footer>
 
       {/* STYLE */}
       <style>{`
@@ -129,22 +121,20 @@ export default function App() {
         }
 
         body {
-          background: #f6f4ef;
-          color: #1c1c1c;
+          background:#f4f1ea; /* REAL off-white premium */
+          color:#1a1a1a;
           font-family: Arial;
         }
 
         :root {
-          --orange: #ff5a1f;
-          --card: #ffffff;
-          --text: #1c1c1c;
-          --muted: #666;
+          --orange:#ff5a1f;
+          --card:#ffffff;
         }
 
         .app {
-          padding: 18px;
-          max-width: 1100px;
-          margin: auto;
+          max-width:1100px;
+          margin:auto;
+          padding:18px;
         }
 
         /* NAV */
@@ -153,16 +143,15 @@ export default function App() {
           justify-content:space-between;
           align-items:center;
           flex-wrap:wrap;
-          gap:10px;
         }
 
         .logo {
+          font-weight:800;
           font-size:20px;
-          font-weight:bold;
         }
 
         .logo span {
-          color: var(--orange);
+          color:var(--orange);
         }
 
         .links {
@@ -171,24 +160,23 @@ export default function App() {
         }
 
         .links button {
-          background:none;
           border:none;
+          background:none;
           cursor:pointer;
           color:#666;
         }
 
         .links button:hover {
-          color: var(--orange);
+          color:var(--orange);
         }
 
         .cta {
-          background: var(--orange);
+          background:var(--orange);
+          color:white;
           border:none;
           padding:10px 14px;
           border-radius:10px;
-          color:white;
           font-weight:bold;
-          box-shadow:0 10px 30px rgba(255,90,31,0.25);
         }
 
         /* HERO */
@@ -199,12 +187,12 @@ export default function App() {
         }
 
         .hero h1 {
-          font-size:40px;
+          font-size:44px;
           line-height:1.2;
         }
 
         .hero span {
-          color: var(--orange);
+          color:var(--orange);
         }
 
         .hero p {
@@ -214,21 +202,25 @@ export default function App() {
         }
 
         .heroBtns {
-          margin-top:20px;
           display:flex;
           justify-content:center;
           gap:10px;
+          margin-top:20px;
           flex-wrap:wrap;
         }
 
         .primary {
-          background: var(--orange);
+          background:var(--orange);
           color:white;
           border:none;
           padding:12px 16px;
           border-radius:10px;
           cursor:pointer;
-          font-weight:bold;
+          transition:0.3s;
+        }
+
+        .primary:hover {
+          transform:translateY(-3px);
         }
 
         .secondary {
@@ -239,42 +231,36 @@ export default function App() {
           cursor:pointer;
         }
 
-        .miniProof {
-          margin-top:18px;
-          font-size:12px;
-          color:#777;
-        }
-
-        /* BLUR */
-        .blob {
+        /* 🔥 REAL PREMIUM BACKGROUND GLOW */
+        .bgGlow {
           position:absolute;
-          width:420px;
-          height:420px;
-          background:rgba(255,90,31,0.15);
-          filter:blur(120px);
+          width:500px;
+          height:500px;
+          background:rgba(255,90,31,0.12);
+          filter:blur(140px);
           top:40%;
           left:50%;
           transform:translate(-50%,-50%);
           z-index:-1;
-          animation: float 6s ease-in-out infinite;
+          animation: float 7s ease-in-out infinite;
         }
 
         @keyframes float {
           0%,100% { transform:translate(-50%,-50%) }
-          50% { transform:translate(-50%,-55%) }
+          50% { transform:translate(-50%,-60%) }
         }
 
         /* STATS */
         .stats {
           display:grid;
           grid-template-columns:repeat(2,1fr);
-          gap:10px;
           text-align:center;
-          margin-top:30px;
+          gap:10px;
+          margin-top:20px;
         }
 
         .stats h2 {
-          color: var(--orange);
+          color:var(--orange);
         }
 
         .stats p {
@@ -282,7 +268,7 @@ export default function App() {
           color:#777;
         }
 
-        /* SECTION */
+        /* SECTIONS */
         .section {
           margin-top:70px;
           text-align:center;
@@ -308,8 +294,8 @@ export default function App() {
         }
 
         .card:hover {
-          transform:translateY(-6px);
-          border-color: var(--orange);
+          transform:translateY(-8px);
+          border-color:var(--orange);
           box-shadow:0 15px 40px rgba(0,0,0,0.08);
         }
 
@@ -317,6 +303,22 @@ export default function App() {
           font-size:13px;
           color:#666;
           margin-top:6px;
+        }
+
+        /* TAGS */
+        .tags {
+          display:flex;
+          justify-content:center;
+          flex-wrap:wrap;
+          gap:8px;
+        }
+
+        .tags span {
+          background:white;
+          padding:8px 12px;
+          border-radius:10px;
+          border:1px solid #eee;
+          font-size:12px;
         }
 
         /* CTA */
@@ -329,27 +331,29 @@ export default function App() {
           text-align:center;
           margin-top:40px;
           font-size:12px;
-          color:#999;
+          color:#888;
         }
 
-        /* ANIMATION */
-        .fadeUp {
+        /* 🔥 REAL ANIMATION SYSTEM */
+        .reveal {
           opacity:0;
-          animation: fadeUp 0.8s ease forwards;
+          transform:translateY(20px);
+          animation:reveal 0.8s forwards;
         }
 
         .delay1 { animation-delay:0.2s; }
         .delay2 { animation-delay:0.4s; }
-        .delay3 { animation-delay:0.6s; }
 
-        @keyframes fadeUp {
-          from { opacity:0; transform:translateY(20px); }
-          to { opacity:1; transform:translateY(0); }
+        @keyframes reveal {
+          to {
+            opacity:1;
+            transform:translateY(0);
+          }
         }
 
         /* MOBILE */
         @media(max-width:600px){
-          .hero h1 { font-size:26px; }
+          .hero h1 { font-size:28px; }
           .links { display:none; }
         }
       `}</style>
