@@ -56,19 +56,22 @@ export default function App() {
   return (
     <div className="page">
 
-      {/* GLOW BACKGROUND */}
       <div className="glow"></div>
 
       {/* NAV */}
       <div className="nav">
-        <div className="logo">Leadex <span>B2B Engine</span></div>
+        <div className="logo">
+          Lead<span style={{ color: "#34d399" }}>EX</span>
+        </div>
+
         <div className="links">
           <a>Services</a>
           <a>Results</a>
           <a>Industries</a>
           <a>Process</a>
         </div>
-        <button className="btn">Book Call</button>
+
+        <button className="btn">Contact Us</button>
       </div>
 
       {/* HERO */}
@@ -77,11 +80,11 @@ export default function App() {
           We Book <span>Qualified B2B Meetings</span>
         </h1>
         <p>
-          Offshore B2B appointment setting agency helping you scale your pipeline with high-intent leads.
+          LeadEX is a performance-driven B2B appointment setting agency helping you scale your pipeline with high-intent leads.
         </p>
 
         <div className="heroBtns">
-          <button className="btn primary">Book Strategy Call</button>
+          <button className="btn primary">Contact Us</button>
           <button className="btn secondary">See How It Works</button>
         </div>
       </div>
@@ -89,7 +92,7 @@ export default function App() {
       {/* STATS */}
       <div className="grid">
         {stats.map((s, i) => (
-          <div className="card" key={i} style={{ animationDelay: `${i * 0.1}s` }}>
+          <div className="card" key={i}>
             <div className="big">{s.v}</div>
             <div className="small">{s.l}</div>
           </div>
@@ -143,27 +146,22 @@ export default function App() {
       <div className="cta">
         <h2>Ready to scale your pipeline?</h2>
         <p>Start booking qualified B2B meetings today.</p>
-        <button className="btn primary">Book Strategy Call</button>
+        <button className="btn primary">Contact Us</button>
       </div>
 
       {/* FOOTER */}
       <div className="footer">
-        © {new Date().getFullYear()} Leadex
+        © {new Date().getFullYear()} LeadEX — B2B Appointment Setting Agency
       </div>
 
       {/* STYLE */}
       <style>{`
-        * { margin:0; padding:0; box-sizing:border-box; }
-
-        body {
-          font-family: Arial;
-        }
-
         .page {
           min-height: 100vh;
           background: #070b14;
           color: white;
           padding: 20px;
+          font-family: Arial;
           overflow-x: hidden;
         }
 
@@ -177,7 +175,6 @@ export default function App() {
           transform: translate(-50%, -50%);
           filter: blur(70px);
           animation: float 6s ease-in-out infinite;
-          z-index: 0;
         }
 
         .nav {
@@ -186,19 +183,11 @@ export default function App() {
           align-items: center;
           flex-wrap: wrap;
           gap: 10px;
-          position: relative;
-          z-index: 2;
         }
 
         .logo {
+          font-size: 20px;
           font-weight: bold;
-          font-size: 18px;
-        }
-
-        .logo span {
-          font-size: 12px;
-          color: #34d399;
-          margin-left: 5px;
         }
 
         .links {
@@ -211,25 +200,20 @@ export default function App() {
         .hero {
           text-align: center;
           margin-top: 50px;
-          position: relative;
-          z-index: 2;
-          animation: fadeUp 0.8s ease;
         }
 
         .hero h1 {
-          font-size: 36px;
+          font-size: 34px;
         }
 
-        .hero h1 span {
+        .hero span {
           color: #34d399;
         }
 
         .hero p {
-          margin-top: 10px;
-          opacity: 0.7;
           max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
+          margin: 10px auto;
+          opacity: 0.7;
         }
 
         .heroBtns {
@@ -263,8 +247,6 @@ export default function App() {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
           gap: 10px;
-          position: relative;
-          z-index: 2;
         }
 
         .card {
@@ -272,7 +254,6 @@ export default function App() {
           padding: 14px;
           border-radius: 14px;
           transition: 0.3s;
-          animation: fadeUp 0.6s ease forwards;
         }
 
         .card:hover {
@@ -281,7 +262,6 @@ export default function App() {
 
         .big {
           color: #34d399;
-          font-size: 18px;
           font-weight: bold;
         }
 
@@ -292,12 +272,6 @@ export default function App() {
 
         .section {
           margin-top: 50px;
-          position: relative;
-          z-index: 2;
-        }
-
-        h2 {
-          margin-bottom: 15px;
         }
 
         .tags {
@@ -316,8 +290,6 @@ export default function App() {
         .cta {
           text-align: center;
           margin-top: 60px;
-          position: relative;
-          z-index: 2;
         }
 
         .footer {
@@ -327,30 +299,10 @@ export default function App() {
           font-size: 12px;
         }
 
-        @keyframes fadeUp {
-          from { opacity:0; transform: translateY(20px); }
-          to { opacity:1; transform: translateY(0); }
-        }
-
         @keyframes float {
           0% { transform: translate(-50%, -50%) }
           50% { transform: translate(-50%, -55%) }
           100% { transform: translate(-50%, -50%) }
-        }
-
-        /* MOBILE FIX */
-        @media (max-width: 600px) {
-          .hero h1 {
-            font-size: 26px;
-          }
-
-          .links {
-            display: none;
-          }
-
-          .grid {
-            grid-template-columns: 1fr;
-          }
         }
       `}</style>
     </div>
