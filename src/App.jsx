@@ -8,178 +8,143 @@ export default function App() {
     "Dedicated Offshore Sales Teams",
   ];
 
-  const industries = [
-    "Telecommunications",
-    "Cloud Solutions",
-    "Cybersecurity",
-    "SaaS",
-    "Managed IT Services",
-    "Business Mobility",
-    "Commercial Cleaning",
-    "Solar Energy",
-    "Warehousing & Logistics",
-    "Any B2B Industry",
-  ];
-
   const stats = [
     { label: "Calls Monthly", value: "10K+" },
     { label: "AUS Market Focus", value: "100%" },
     { label: "Appointment Driven", value: "High Intent" },
-    { label: "Response Time", value: "< 1 min follow-up" },
+    { label: "Response Time", value: "< 1 min" },
+  ];
+
+  const industries = [
+    "Telecom", "Cloud", "Cybersecurity", "SaaS",
+    "IT Services", "Mobility", "Logistics", "Solar"
   ];
 
   const process = [
-    {
-      t: "1. Setup & Strategy",
-      d: "We define your ICP, offer, targeting criteria, and ideal decision-makers in alignment with your sales objectives.",
-    },
-    {
-      t: "2. Training & Campaign Preparation",
-      d: "We train dedicated outbound agents, build tailored scripts, configure dialer systems, and prepare campaign workflows.",
-    },
-    {
-      t: "3. Outbound Execution & Appointment Booking",
-      d: "We conduct structured B2B outreach to decision-makers and book high-quality meetings.",
-    },
-    {
-      t: "4. Meeting Coordination & Pre-Meeting Briefing",
-      d: "We schedule meetings and provide full briefing with prospect insights and agenda.",
-    },
+    { t: "Strategy", d: "Define ICP & targeting" },
+    { t: "Training", d: "Build scripts & agents" },
+    { t: "Execution", d: "Outbound & booking calls" },
+    { t: "Delivery", d: "Qualified meetings + insights" },
   ];
 
   return (
-    <div style={{ background: "#070b14", color: "white", fontFamily: "sans-serif" }}>
-      
+    <div className="min-h-screen bg-[#070b14] text-white font-sans overflow-x-hidden">
+
       {/* NAV */}
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "20px 40px",
-        borderBottom: "1px solid rgba(255,255,255,0.1)"
-      }}>
-        <div style={{ fontSize: "20px", fontWeight: "bold" }}>
-          Leadex <span style={{ color: "#34d399", fontSize: "12px" }}>B2B Growth Engine</span>
+      <header className="fixed top-0 w-full z-50 backdrop-blur bg-[#070b14]/70 border-b border-white/10">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+          <div className="text-lg font-bold tracking-wide animate-pulse">
+            Leadex <span className="text-emerald-400 text-xs">B2B Engine</span>
+          </div>
+
+          <button className="bg-emerald-500 text-black px-3 py-2 rounded-xl text-sm hover:scale-105 transition">
+            Book Call
+          </button>
         </div>
-        <button style={{
-          background: "#34d399",
-          border: "none",
-          padding: "10px 20px",
-          borderRadius: "10px",
-          fontWeight: "bold"
-        }}>
-          Book Call
-        </button>
-      </div>
+      </header>
 
       {/* HERO */}
-      <div style={{ padding: "80px 40px" }}>
-        <h1 style={{ fontSize: "50px" }}>
-          We Book Qualified B2B Meetings
+      <section className="pt-28 px-4 text-center">
+        <h1 className="text-3xl md:text-6xl font-bold leading-tight animate-fade-in">
+          We Book <span className="text-emerald-400">Qualified B2B Meetings</span>
         </h1>
-        <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px" }}>
-          Leadex helps companies scale their pipeline with offshore B2B sales teams based in Egypt.
+
+        <p className="mt-4 text-white/70 max-w-xl mx-auto text-sm md:text-base">
+          Offshore appointment setting agency helping companies scale their sales pipeline.
         </p>
 
-        <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-          <button style={{
-            background: "#34d399",
-            padding: "12px 20px",
-            borderRadius: "10px",
-            border: "none"
-          }}>
+        <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <button className="bg-emerald-500 text-black px-5 py-3 rounded-xl hover:scale-105 transition">
             Book Strategy Call
           </button>
-
-          <button style={{
-            background: "transparent",
-            border: "1px solid rgba(255,255,255,0.2)",
-            padding: "12px 20px",
-            borderRadius: "10px",
-            color: "white"
-          }}>
-            See How It Works
+          <button className="border border-white/20 px-5 py-3 rounded-xl hover:bg-white/10 transition">
+            Learn More
           </button>
         </div>
-      </div>
+      </section>
 
       {/* STATS */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4,1fr)",
-        gap: "20px",
-        padding: "40px"
-      }}>
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 px-4 mt-10">
         {stats.map((s) => (
-          <div key={s.label} style={{
-            background: "rgba(255,255,255,0.05)",
-            padding: "20px",
-            borderRadius: "15px"
-          }}>
-            <h2 style={{ color: "#34d399" }}>{s.value}</h2>
-            <p>{s.label}</p>
+          <div key={s.label}
+            className="bg-white/5 p-4 rounded-2xl text-center hover:scale-105 transition">
+            <div className="text-emerald-400 font-bold">{s.value}</div>
+            <div className="text-xs text-white/60">{s.label}</div>
           </div>
         ))}
-      </div>
+      </section>
 
       {/* SERVICES */}
-      <div style={{ padding: "40px" }}>
-        <h2>Core Services</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "20px" }}>
+      <section className="px-4 mt-12">
+        <h2 className="text-xl font-bold mb-4">Core Services</h2>
+
+        <div className="grid md:grid-cols-3 gap-3">
           {services.map((s) => (
-            <div key={s} style={{
-              background: "rgba(255,255,255,0.05)",
-              padding: "20px",
-              borderRadius: "15px"
-            }}>
+            <div key={s}
+              className="p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition hover:scale-[1.02]">
               {s}
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* INDUSTRIES */}
-      <div style={{ padding: "40px" }}>
-        <h2>Industries</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+      <section className="px-4 mt-12">
+        <h2 className="text-xl font-bold mb-4">Industries</h2>
+
+        <div className="flex flex-wrap gap-2">
           {industries.map((i) => (
-            <span key={i} style={{
-              background: "rgba(255,255,255,0.05)",
-              padding: "8px 12px",
-              borderRadius: "10px"
-            }}>
+            <span key={i}
+              className="px-3 py-1 bg-white/5 rounded-xl text-xs hover:bg-white/10 transition">
               {i}
             </span>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* PROCESS */}
-      <div style={{ padding: "40px" }}>
-        <h2>How It Works</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "20px" }}>
-          {process.map((p) => (
-            <div key={p.t} style={{
-              background: "rgba(255,255,255,0.05)",
-              padding: "20px",
-              borderRadius: "15px"
-            }}>
-              <h3 style={{ color: "#34d399" }}>{p.t}</h3>
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)" }}>
-                {p.d}
-              </p>
+      <section className="px-4 mt-12">
+        <h2 className="text-xl font-bold mb-4">How It Works</h2>
+
+        <div className="grid md:grid-cols-4 gap-3">
+          {process.map((p, index) => (
+            <div key={p.t}
+              className="p-4 rounded-2xl bg-white/5 hover:scale-105 transition"
+              style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="text-emerald-400 font-bold">{p.t}</div>
+              <div className="text-xs text-white/60 mt-2">{p.d}</div>
             </div>
           ))}
         </div>
-      </div>
+      </section>
+
+      {/* CTA */}
+      <section className="text-center mt-16 px-4">
+        <h2 className="text-2xl font-bold">
+          Ready to scale your pipeline?
+        </h2>
+
+        <button className="mt-4 bg-emerald-500 text-black px-6 py-3 rounded-xl hover:scale-105 transition">
+          Book Strategy Call
+        </button>
+      </section>
 
       {/* FOOTER */}
-      <div style={{
-        textAlign: "center",
-        padding: "40px",
-        borderTop: "1px solid rgba(255,255,255,0.1)"
-      }}>
+      <footer className="text-center text-white/40 text-xs mt-16 pb-10">
         © {new Date().getFullYear()} Leadex
-      </div>
+      </footer>
+
+      {/* SIMPLE ANIMATION STYLE */}
+      <style>{`
+        .animate-fade-in {
+          animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
