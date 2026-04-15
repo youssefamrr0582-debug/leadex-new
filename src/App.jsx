@@ -30,24 +30,24 @@ export default function App() {
       <section className="hero">
         <div className="glow"></div>
 
-        <h1>
-          We Book <span>Qualified B2B Meetings</span>
+        <h1 className="fadeInUp">
+          We Book <span>High-Quality B2B Meetings</span>
         </h1>
 
-        <p>
-          LeadEX helps B2B companies generate predictable pipeline through outbound appointment setting systems.
+        <p className="fadeInUp delay1">
+          LeadEX is a performance-driven outbound appointment setting agency helping B2B companies scale pipeline predictably.
         </p>
 
-        <div className="heroBtns">
+        <div className="heroBtns fadeInUp delay2">
           <button className="primary">Contact Us</button>
           <button className="secondary" onClick={() => scrollTo("services")}>
-            Our Services
+            Explore Services
           </button>
         </div>
       </section>
 
       {/* RESULTS */}
-      <section id="results" className="stats">
+      <section id="results" className="stats fadeInUp">
         <div><h2>10K+</h2><p>Calls Monthly</p></div>
         <div><h2>High</h2><p>Intent Leads</p></div>
         <div><h2>100%</h2><p>B2B Focus</p></div>
@@ -55,7 +55,7 @@ export default function App() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="section">
+      <section id="services" className="section fadeInUp">
         <h2>Core Services</h2>
 
         <div className="grid">
@@ -69,25 +69,25 @@ export default function App() {
           ].map((s, i) => (
             <div key={i} className="card">
               <h3>{s}</h3>
-              <p>We generate high-quality sales-ready meetings for your business.</p>
+              <p>We generate qualified sales meetings for your business through structured outbound systems.</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section id="industries" className="section">
+      <section id="industries" className="section fadeInUp">
         <h2>Industries</h2>
 
         <div className="tags">
-          {["SaaS","Cybersecurity","IT","Telecom","Logistics","Energy"].map((i, idx) => (
+          {["SaaS","Cybersecurity","IT Services","Telecom","Logistics","Energy","Consulting"].map((i, idx) => (
             <span key={idx}>{i}</span>
           ))}
         </div>
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="section">
+      <section id="process" className="section fadeInUp">
         <h2>How It Works</h2>
 
         <div className="grid">
@@ -106,233 +106,255 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section className="cta">
+      <section className="cta fadeInUp">
         <h2>Ready to scale your pipeline?</h2>
         <button className="primary">Contact Us</button>
       </section>
 
       <footer>
-        © {new Date().getFullYear()} LeadEX
+        © {new Date().getFullYear()} LeadEX — B2B Appointment Setting Agency
       </footer>
 
-      {/* STYLE (ORANGE + GREY + MOBILE FIX) */}
+      {/* STYLE */}
       <style>{`
         * {
-          margin:0;
-          padding:0;
-          box-sizing:border-box;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
 
         body {
-          background:#0f0f10;
-          color:#d6d6d6;
+          background: #070708;
+          color: #f2f2f2;
           font-family: Arial;
         }
 
+        :root {
+          --orange: #ff4d1c;
+          --card: #141416;
+        }
+
         .app {
-          padding:16px;
-          max-width:1100px;
-          margin:auto;
+          padding: 16px;
+          max-width: 1100px;
+          margin: auto;
         }
 
         /* NAV */
         .nav {
-          display:flex;
-          justify-content:space-between;
-          align-items:center;
-          flex-wrap:wrap;
-          gap:10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 10px;
         }
 
         .logo {
-          font-size:18px;
-          font-weight:bold;
-          color:#d6d6d6;
+          font-size: 20px;
+          font-weight: bold;
         }
 
         .logo span {
-          color:#ff7a18;
+          color: var(--orange);
         }
 
         .links {
-          display:flex;
-          gap:12px;
-          flex-wrap:wrap;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
         }
 
         .links button {
-          background:none;
-          border:none;
-          color:#a0a0a0;
-          cursor:pointer;
-          font-size:12px;
+          background: none;
+          border: none;
+          color: #aaa;
+          cursor: pointer;
         }
 
         .links button:hover {
-          color:#ff7a18;
+          color: var(--orange);
         }
 
         .cta {
-          background:#ff7a18;
-          border:none;
-          padding:8px 12px;
-          border-radius:8px;
-          cursor:pointer;
-          color:black;
-          font-weight:bold;
+          background: var(--orange);
+          color: black;
+          border: none;
+          padding: 10px 14px;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;
+          box-shadow: 0 0 20px rgba(255,77,28,0.3);
         }
 
         /* HERO */
         .hero {
-          text-align:center;
-          padding:70px 10px;
-          position:relative;
+          text-align: center;
+          padding: 80px 10px;
+          position: relative;
         }
 
         .hero h1 {
-          font-size:32px;
-          color:#e5e5e5;
+          font-size: 38px;
         }
 
         .hero span {
-          color:#ff7a18;
+          color: var(--orange);
         }
 
         .hero p {
-          max-width:600px;
-          margin:12px auto;
-          opacity:0.7;
-          font-size:14px;
+          max-width: 650px;
+          margin: 15px auto;
+          opacity: 0.7;
         }
 
         .heroBtns {
-          display:flex;
-          justify-content:center;
-          gap:10px;
-          margin-top:20px;
-          flex-wrap:wrap;
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
         }
 
         .primary {
-          background:#ff7a18;
-          border:none;
-          padding:10px 14px;
-          border-radius:8px;
-          cursor:pointer;
-          font-weight:bold;
-          color:black;
+          background: var(--orange);
+          color: black;
+          border: none;
+          padding: 12px 16px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: bold;
         }
 
         .secondary {
-          background:transparent;
-          border:1px solid #444;
-          padding:10px 14px;
-          border-radius:8px;
-          color:#d6d6d6;
-          cursor:pointer;
+          background: transparent;
+          border: 1px solid #333;
+          padding: 12px 16px;
+          border-radius: 8px;
+          color: #fff;
+          cursor: pointer;
         }
 
         /* GLOW */
         .glow {
-          position:absolute;
-          width:250px;
-          height:250px;
-          background:#ff7a1822;
-          filter:blur(80px);
-          top:40%;
-          left:50%;
-          transform:translate(-50%,-50%);
-          z-index:-1;
+          position: absolute;
+          width: 450px;
+          height: 450px;
+          background: rgba(255,77,28,0.25);
+          filter: blur(130px);
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
         }
 
         /* STATS */
         .stats {
-          display:grid;
-          grid-template-columns:repeat(2,1fr);
-          gap:10px;
-          margin-top:30px;
-          text-align:center;
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          gap: 12px;
+          text-align: center;
+          margin-top: 20px;
         }
 
         .stats h2 {
-          color:#ff7a18;
+          color: var(--orange);
         }
 
         .stats p {
-          font-size:11px;
-          opacity:0.6;
+          opacity: 0.6;
+          font-size: 12px;
         }
 
-        /* SECTIONS */
+        /* SECTION */
         .section {
-          margin-top:60px;
-          text-align:center;
+          margin-top: 70px;
+          text-align: center;
         }
 
         .section h2 {
-          margin-bottom:15px;
-          color:#e5e5e5;
+          margin-bottom: 20px;
         }
 
         /* GRID */
         .grid {
-          display:grid;
-          grid-template-columns:1fr;
-          gap:10px;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
         }
 
         .card {
-          background:#1a1a1c;
-          padding:14px;
-          border-radius:10px;
-          transition:0.2s;
+          background: var(--card);
+          padding: 14px;
+          border-radius: 12px;
+          transition: 0.3s;
+          border: 1px solid #1f1f1f;
         }
 
         .card:hover {
-          transform:translateY(-4px);
-          border:1px solid #ff7a18;
+          transform: translateY(-6px);
+          border-color: var(--orange);
+          box-shadow: 0 10px 30px rgba(255,77,28,0.15);
         }
 
         .card p {
-          font-size:12px;
-          opacity:0.6;
-          margin-top:6px;
+          font-size: 12px;
+          opacity: 0.6;
+          margin-top: 6px;
         }
 
         /* TAGS */
         .tags {
-          display:flex;
-          flex-wrap:wrap;
-          justify-content:center;
-          gap:8px;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 8px;
         }
 
         .tags span {
-          background:#1a1a1c;
-          padding:6px 10px;
-          border-radius:8px;
-          font-size:12px;
-          color:#aaa;
+          background: #141416;
+          padding: 8px 12px;
+          border-radius: 8px;
+          font-size: 12px;
+          opacity: 0.8;
         }
 
         /* CTA */
         .cta {
-          text-align:center;
-          margin-top:70px;
+          text-align: center;
+          margin-top: 80px;
         }
 
         footer {
-          text-align:center;
-          margin-top:40px;
-          opacity:0.4;
-          font-size:12px;
+          text-align: center;
+          margin-top: 40px;
+          opacity: 0.4;
+          font-size: 12px;
         }
 
-        /* MOBILE FIX */
+        /* ANIMATIONS */
+        .fadeInUp {
+          animation: fadeInUp 0.8s ease forwards;
+          opacity: 0;
+        }
+
+        .delay1 { animation-delay: 0.2s; }
+        .delay2 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* MOBILE */
         @media(max-width:600px){
-          .hero h1 { font-size:24px; }
+          .hero h1 { font-size: 26px; }
           .links { display:none; }
-          .stats { grid-template-columns:1fr 1fr; }
         }
       `}</style>
     </div>
