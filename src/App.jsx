@@ -11,9 +11,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="page">
+    <div className="app">
 
-      {/* NAV (clean like Belkins) */}
+      {/* NAV */}
       <header className="nav">
         <div className="logo">Lead<span>EX</span></div>
 
@@ -27,74 +27,106 @@ export default function App() {
         <button className="cta">Contact Us</button>
       </header>
 
-      {/* HERO (Belkins style: simple message) */}
+      {/* HERO (Belkins-style message heavy) */}
       <section className="hero">
+        <div className="glow"></div>
+
+        <p className="kicker">B2B Appointment Setting Agency</p>
+
         <h1>
-          Appointment Setting for <span>B2B Companies</span>
+          We help B2B companies <span>book qualified meetings</span> with decision makers
         </h1>
 
-        <p>
-          We help sales teams book qualified meetings with decision makers through structured outbound systems.
+        <p className="sub">
+          LeadEX builds outbound systems that generate predictable pipeline through cold calling, qualification, and appointment setting for high-value B2B industries.
         </p>
 
         <div className="heroBtns">
           <button className="primary">Contact Us</button>
           <button className="secondary" onClick={() => scrollTo("services")}>
-            Our Services
+            Explore Services
           </button>
         </div>
       </section>
 
-      {/* RESULTS (simple proof like Belkins) */}
+      {/* RESULTS (Belkins style credibility row) */}
       <section id="results" className="stats">
-        <div>10K+ <span>Calls Monthly</span></div>
-        <div>High Intent <span>Leads</span></div>
-        <div>100% <span>B2B Focus</span></div>
-        <div>&lt;1 min <span>Response Time</span></div>
+        <div>
+          <h2>10K+</h2>
+          <p>Outbound Calls / Month</p>
+        </div>
+
+        <div>
+          <h2>High</h2>
+          <p>Intent Qualified Leads</p>
+        </div>
+
+        <div>
+          <h2>100%</h2>
+          <p>B2B Focus (AUS Market)</p>
+        </div>
+
+        <div>
+          <h2>&lt;1 min</h2>
+          <p>Lead Response Time</p>
+        </div>
       </section>
 
-      {/* SERVICES (very clean like Belkins) */}
+      {/* SERVICES (structured like Belkins) */}
       <section id="services" className="section">
         <h2>What We Do</h2>
 
+        <p className="sectionSub">
+          We don’t sell leads — we build outbound systems that deliver booked meetings directly with decision makers.
+        </p>
+
         <div className="grid">
           {[
-            "B2B Appointment Setting",
-            "Cold Calling Campaigns",
-            "Lead Qualification",
-            "Decision Maker Outreach",
-            "Pipeline Generation",
-            "Dedicated Sales Teams"
+            ["B2B Appointment Setting","We book qualified meetings with decision makers in your ICP."],
+            ["Cold Calling Campaigns","Structured outbound calling with trained offshore agents."],
+            ["Lead Qualification","Filtering prospects to only high-intent opportunities."],
+            ["Decision Maker Outreach","Direct access to executives & managers."],
+            ["Pipeline Generation","Consistent sales pipeline for your team."],
+            ["Dedicated Sales Teams","Offshore trained SDR teams for your business."]
           ].map((s, i) => (
             <div key={i} className="card">
-              <h3>{s}</h3>
-              <p>We build outbound systems that deliver sales-ready meetings.</p>
+              <h3>{s[0]}</h3>
+              <p>{s[1]}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* INDUSTRIES (Belkins style tags) */}
+      {/* INDUSTRIES (Belkins positioning style) */}
       <section id="industries" className="section">
-        <h2>Industries</h2>
+        <h2>Industries We Support</h2>
 
         <div className="tags">
-          {["SaaS","IT","Cybersecurity","Telecom","Energy","Logistics","Finance"].map((i, idx) => (
+          {[
+            "SaaS",
+            "Cybersecurity",
+            "Cloud Solutions",
+            "Telecommunications",
+            "IT Services",
+            "Logistics",
+            "Energy",
+            "B2B Services"
+          ].map((i, idx) => (
             <span key={idx}>{i}</span>
           ))}
         </div>
       </section>
 
-      {/* PROCESS (simple 4 steps like Belkins) */}
+      {/* PROCESS (very structured like Belkins) */}
       <section id="process" className="section">
         <h2>How It Works</h2>
 
         <div className="grid">
           {[
-            ["Strategy","Define ICP and targeting"],
-            ["Setup","Build scripts & train agents"],
-            ["Execution","Outbound calling campaigns"],
-            ["Delivery","Qualified booked meetings"]
+            ["1. Strategy","We define ICP, messaging, and targeting."],
+            ["2. Setup","Scripts, training, systems & dialers."],
+            ["3. Execution","Outbound calling + qualification + booking."],
+            ["4. Delivery","Qualified meetings delivered to your team."]
           ].map((p, i) => (
             <div key={i} className="card">
               <h3>{p[0]}</h3>
@@ -104,15 +136,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* CTA (Belkins simple end section) */}
+      {/* CTA */}
       <section className="cta">
-        <h2>Let’s build your pipeline</h2>
+        <h2>Ready to scale your pipeline?</h2>
+        <p>Let’s build a predictable outbound engine for your business.</p>
         <button className="primary">Contact Us</button>
       </section>
 
       {/* FOOTER */}
       <footer>
-        © {new Date().getFullYear()} LeadEX
+        © {new Date().getFullYear()} LeadEX — B2B Appointment Setting Agency
       </footer>
 
       {/* STYLE */}
@@ -125,11 +158,11 @@ export default function App() {
           font-family: Arial;
         }
 
-        .page {
+        .app {
           padding:20px;
         }
 
-        /* NAV (Belkins clean) */
+        /* NAV */
         .nav {
           display:flex;
           justify-content:space-between;
@@ -173,23 +206,33 @@ export default function App() {
           cursor:pointer;
         }
 
-        /* HERO (very simple like Belkins) */
+        /* HERO */
         .hero {
           text-align:center;
-          padding:90px 20px;
+          padding:100px 20px;
+          position:relative;
+        }
+
+        .kicker {
+          color:#34d399;
+          font-size:12px;
+          letter-spacing:2px;
+          margin-bottom:10px;
         }
 
         .hero h1 {
-          font-size:42px;
+          font-size:44px;
+          max-width:800px;
+          margin:auto;
         }
 
         .hero span {
           color:#34d399;
         }
 
-        .hero p {
-          max-width:600px;
-          margin:10px auto;
+        .sub {
+          max-width:650px;
+          margin:15px auto;
           opacity:0.7;
         }
 
@@ -217,60 +260,73 @@ export default function App() {
           cursor:pointer;
         }
 
-        /* STATS (Belkins style minimal proof row) */
+        /* GLOW */
+        .glow {
+          position:absolute;
+          width:400px;
+          height:400px;
+          background:#34d39933;
+          filter:blur(90px);
+          top:40%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          z-index:-1;
+        }
+
+        /* STATS */
         .stats {
-          display:flex;
-          justify-content:center;
-          gap:30px;
-          flex-wrap:wrap;
-          margin-top:40px;
-          opacity:0.9;
-        }
-
-        .stats div {
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+          gap:20px;
           text-align:center;
+          margin-top:40px;
         }
 
-        .stats span {
-          display:block;
-          font-size:12px;
+        .stats h2 {
+          color:#34d399;
+        }
+
+        .stats p {
           opacity:0.6;
+          font-size:12px;
         }
 
         /* SECTIONS */
         .section {
-          margin-top:80px;
+          margin-top:90px;
           text-align:center;
         }
 
-        h2 {
-          margin-bottom:20px;
+        .sectionSub {
+          opacity:0.6;
+          max-width:600px;
+          margin:10px auto 30px;
         }
 
         /* GRID */
         .grid {
           display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+          grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
           gap:12px;
           margin-top:20px;
         }
 
         .card {
           background:rgba(255,255,255,0.04);
-          padding:16px;
-          border-radius:10px;
+          padding:18px;
+          border-radius:12px;
           transition:0.2s;
         }
 
         .card:hover {
-          transform:translateY(-4px);
+          transform:translateY(-5px);
           background:rgba(52,211,153,0.08);
         }
 
         .card p {
           opacity:0.6;
           font-size:12px;
-          margin-top:6px;
+          margin-top:8px;
         }
 
         /* TAGS */
@@ -292,7 +348,12 @@ export default function App() {
         /* CTA */
         .cta {
           text-align:center;
-          margin-top:90px;
+          margin-top:100px;
+        }
+
+        .cta p {
+          opacity:0.6;
+          margin:10px 0;
         }
 
         footer {
