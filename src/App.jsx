@@ -28,56 +28,60 @@ export default function App() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="glow"></div>
+        <div className="blob"></div>
 
-        <h1 className="fadeInUp">
-          We Book <span>High-Quality B2B Meetings</span>
+        <h1 className="fadeUp">
+          We Build <span>Predictable B2B Pipelines</span> for Growth-Focused Companies
         </h1>
 
-        <p className="fadeInUp delay1">
-          LeadEX is a performance-driven outbound appointment setting agency helping B2B companies scale pipeline predictably.
+        <p className="fadeUp delay1">
+          LeadEX is a performance-driven outbound appointment setting agency. We connect you directly with decision-makers and deliver sales-ready meetings — not leads.
         </p>
 
-        <div className="heroBtns fadeInUp delay2">
+        <div className="heroBtns fadeUp delay2">
           <button className="primary">Contact Us</button>
           <button className="secondary" onClick={() => scrollTo("services")}>
             Explore Services
           </button>
         </div>
+
+        <div className="miniProof fadeUp delay3">
+          Trusted for B2B outbound systems • SaaS • IT • Telecom • Cybersecurity
+        </div>
       </section>
 
       {/* RESULTS */}
-      <section id="results" className="stats fadeInUp">
+      <section id="results" className="stats fadeUp">
         <div><h2>10K+</h2><p>Calls Monthly</p></div>
-        <div><h2>High</h2><p>Intent Leads</p></div>
+        <div><h2>Qualified</h2><p>Decision Makers</p></div>
         <div><h2>100%</h2><p>B2B Focus</p></div>
-        <div><h2>&lt;1 min</h2><p>Response Time</p></div>
+        <div><h2>&lt;1min</h2><p>Lead Response</p></div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="section fadeInUp">
+      <section id="services" className="section fadeUp">
         <h2>Core Services</h2>
 
         <div className="grid">
           {[
-            "B2B Appointment Setting",
-            "Cold Calling",
-            "Lead Qualification",
-            "Decision Maker Outreach",
-            "Pipeline Building",
-            "Dedicated SDR Teams"
+            ["Appointment Setting","We book qualified meetings directly with decision-makers."],
+            ["Cold Calling","High-volume outbound calling with trained SDRs."],
+            ["Lead Qualification","Filtering prospects into sales-ready opportunities."],
+            ["Decision Maker Outreach","Direct access to CEOs, Managers & Heads."],
+            ["Pipeline Building","Full outbound pipeline systems."],
+            ["Dedicated SDR Teams","Fully managed offshore sales teams."]
           ].map((s, i) => (
             <div key={i} className="card">
-              <h3>{s}</h3>
-              <p>We generate qualified sales meetings for your business through structured outbound systems.</p>
+              <h3>{s[0]}</h3>
+              <p>{s[1]}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section id="industries" className="section fadeInUp">
-        <h2>Industries</h2>
+      <section id="industries" className="section fadeUp">
+        <h2>Industries We Serve</h2>
 
         <div className="tags">
           {["SaaS","Cybersecurity","IT Services","Telecom","Logistics","Energy","Consulting"].map((i, idx) => (
@@ -87,15 +91,15 @@ export default function App() {
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="section fadeInUp">
+      <section id="process" className="section fadeUp">
         <h2>How It Works</h2>
 
         <div className="grid">
           {[
-            ["Strategy","Define ICP & targeting"],
-            ["Setup","Scripts + training"],
-            ["Execution","Outbound calling"],
-            ["Delivery","Booked meetings"]
+            ["1. Strategy","We define ICP, offer positioning & targeting."],
+            ["2. Setup","Scripts, data, dialers, training."],
+            ["3. Execution","Outbound calling campaigns."],
+            ["4. Delivery","Booked qualified B2B meetings."]
           ].map((p, i) => (
             <div key={i} className="card">
               <h3>{p[0]}</h3>
@@ -106,8 +110,9 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section className="cta fadeInUp">
-        <h2>Ready to scale your pipeline?</h2>
+      <section className="cta fadeUp">
+        <h2>Ready to build a scalable pipeline?</h2>
+        <p>Let’s turn outbound into predictable revenue growth.</p>
         <button className="primary">Contact Us</button>
       </section>
 
@@ -118,40 +123,42 @@ export default function App() {
       {/* STYLE */}
       <style>{`
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
         }
 
         body {
-          background: #070708;
-          color: #f2f2f2;
+          background: #f6f4ef;
+          color: #1c1c1c;
           font-family: Arial;
         }
 
         :root {
-          --orange: #ff4d1c;
-          --card: #141416;
+          --orange: #ff5a1f;
+          --card: #ffffff;
+          --text: #1c1c1c;
+          --muted: #666;
         }
 
         .app {
-          padding: 16px;
+          padding: 18px;
           max-width: 1100px;
           margin: auto;
         }
 
         /* NAV */
         .nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 10px;
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          flex-wrap:wrap;
+          gap:10px;
         }
 
         .logo {
-          font-size: 20px;
-          font-weight: bold;
+          font-size:20px;
+          font-weight:bold;
         }
 
         .logo span {
@@ -159,16 +166,15 @@ export default function App() {
         }
 
         .links {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
+          display:flex;
+          gap:12px;
         }
 
         .links button {
-          background: none;
-          border: none;
-          color: #aaa;
-          cursor: pointer;
+          background:none;
+          border:none;
+          cursor:pointer;
+          color:#666;
         }
 
         .links button:hover {
@@ -177,24 +183,24 @@ export default function App() {
 
         .cta {
           background: var(--orange);
-          color: black;
-          border: none;
-          padding: 10px 14px;
-          border-radius: 8px;
-          font-weight: bold;
-          cursor: pointer;
-          box-shadow: 0 0 20px rgba(255,77,28,0.3);
+          border:none;
+          padding:10px 14px;
+          border-radius:10px;
+          color:white;
+          font-weight:bold;
+          box-shadow:0 10px 30px rgba(255,90,31,0.25);
         }
 
         /* HERO */
         .hero {
-          text-align: center;
-          padding: 80px 10px;
-          position: relative;
+          text-align:center;
+          padding:90px 10px;
+          position:relative;
         }
 
         .hero h1 {
-          font-size: 38px;
+          font-size:40px;
+          line-height:1.2;
         }
 
         .hero span {
@@ -202,58 +208,69 @@ export default function App() {
         }
 
         .hero p {
-          max-width: 650px;
-          margin: 15px auto;
-          opacity: 0.7;
+          max-width:650px;
+          margin:15px auto;
+          color:#666;
         }
 
         .heroBtns {
-          margin-top: 20px;
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          flex-wrap: wrap;
+          margin-top:20px;
+          display:flex;
+          justify-content:center;
+          gap:10px;
+          flex-wrap:wrap;
         }
 
         .primary {
           background: var(--orange);
-          color: black;
-          border: none;
-          padding: 12px 16px;
-          border-radius: 8px;
-          cursor: pointer;
-          font-weight: bold;
+          color:white;
+          border:none;
+          padding:12px 16px;
+          border-radius:10px;
+          cursor:pointer;
+          font-weight:bold;
         }
 
         .secondary {
-          background: transparent;
-          border: 1px solid #333;
-          padding: 12px 16px;
-          border-radius: 8px;
-          color: #fff;
-          cursor: pointer;
+          background:white;
+          border:1px solid #ddd;
+          padding:12px 16px;
+          border-radius:10px;
+          cursor:pointer;
         }
 
-        /* GLOW */
-        .glow {
-          position: absolute;
-          width: 450px;
-          height: 450px;
-          background: rgba(255,77,28,0.25);
-          filter: blur(130px);
-          top: 40%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: -1;
+        .miniProof {
+          margin-top:18px;
+          font-size:12px;
+          color:#777;
+        }
+
+        /* BLUR */
+        .blob {
+          position:absolute;
+          width:420px;
+          height:420px;
+          background:rgba(255,90,31,0.15);
+          filter:blur(120px);
+          top:40%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          z-index:-1;
+          animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%,100% { transform:translate(-50%,-50%) }
+          50% { transform:translate(-50%,-55%) }
         }
 
         /* STATS */
         .stats {
-          display: grid;
-          grid-template-columns: repeat(2,1fr);
-          gap: 12px;
-          text-align: center;
-          margin-top: 20px;
+          display:grid;
+          grid-template-columns:repeat(2,1fr);
+          gap:10px;
+          text-align:center;
+          margin-top:30px;
         }
 
         .stats h2 {
@@ -261,99 +278,78 @@ export default function App() {
         }
 
         .stats p {
-          opacity: 0.6;
-          font-size: 12px;
+          font-size:12px;
+          color:#777;
         }
 
         /* SECTION */
         .section {
-          margin-top: 70px;
-          text-align: center;
+          margin-top:70px;
+          text-align:center;
         }
 
         .section h2 {
-          margin-bottom: 20px;
+          margin-bottom:18px;
         }
 
         /* GRID */
         .grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 12px;
+          display:grid;
+          grid-template-columns:1fr;
+          gap:12px;
         }
 
         .card {
-          background: var(--card);
-          padding: 14px;
-          border-radius: 12px;
-          transition: 0.3s;
-          border: 1px solid #1f1f1f;
+          background:white;
+          padding:16px;
+          border-radius:14px;
+          border:1px solid #eee;
+          transition:0.3s;
         }
 
         .card:hover {
-          transform: translateY(-6px);
+          transform:translateY(-6px);
           border-color: var(--orange);
-          box-shadow: 0 10px 30px rgba(255,77,28,0.15);
+          box-shadow:0 15px 40px rgba(0,0,0,0.08);
         }
 
         .card p {
-          font-size: 12px;
-          opacity: 0.6;
-          margin-top: 6px;
-        }
-
-        /* TAGS */
-        .tags {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .tags span {
-          background: #141416;
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-size: 12px;
-          opacity: 0.8;
+          font-size:13px;
+          color:#666;
+          margin-top:6px;
         }
 
         /* CTA */
         .cta {
-          text-align: center;
-          margin-top: 80px;
+          text-align:center;
+          margin-top:80px;
         }
 
         footer {
-          text-align: center;
-          margin-top: 40px;
-          opacity: 0.4;
-          font-size: 12px;
+          text-align:center;
+          margin-top:40px;
+          font-size:12px;
+          color:#999;
         }
 
-        /* ANIMATIONS */
-        .fadeInUp {
-          animation: fadeInUp 0.8s ease forwards;
-          opacity: 0;
+        /* ANIMATION */
+        .fadeUp {
+          opacity:0;
+          animation: fadeUp 0.8s ease forwards;
         }
 
-        .delay1 { animation-delay: 0.2s; }
-        .delay2 { animation-delay: 0.4s; }
+        .delay1 { animation-delay:0.2s; }
+        .delay2 { animation-delay:0.4s; }
+        .delay3 { animation-delay:0.6s; }
 
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        @keyframes fadeUp {
+          from { opacity:0; transform:translateY(20px); }
+          to { opacity:1; transform:translateY(0); }
         }
 
         /* MOBILE */
         @media(max-width:600px){
-          .hero h1 { font-size: 26px; }
+          .hero h1 { font-size:26px; }
           .links { display:none; }
         }
       `}</style>
