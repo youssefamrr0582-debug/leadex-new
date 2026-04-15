@@ -1,150 +1,229 @@
 export default function App() {
   const services = [
-    "B2B Appointment Setting (Any Industry)",
+    "B2B Appointment Setting",
     "Cold Calling & Lead Qualification",
     "High-Quality Lead Generation",
     "Decision-Maker Outreach",
-    "Pipeline & Revenue Support",
-    "Dedicated Offshore Sales Teams",
+    "Pipeline Growth Support",
+    "Dedicated Offshore Teams",
   ];
 
   const stats = [
-    { label: "Calls Monthly", value: "10K+" },
-    { label: "AUS Market Focus", value: "100%" },
-    { label: "Appointment Driven", value: "High Intent" },
-    { label: "Response Time", value: "< 1 min" },
+    { v: "10K+", l: "Monthly Calls" },
+    { v: "100%", l: "AUS Market Focus" },
+    { v: "High", l: "Intent Appointments" },
+    { v: "<1 min", l: "Response Time" },
   ];
 
   const industries = [
     "Telecom", "Cloud", "Cybersecurity", "SaaS",
-    "IT Services", "Mobility", "Logistics", "Solar"
+    "IT Services", "Logistics", "Solar", "Mobility"
   ];
 
-  const process = [
-    { t: "Strategy", d: "Define ICP & targeting" },
-    { t: "Training", d: "Build scripts & agents" },
-    { t: "Execution", d: "Outbound & booking calls" },
-    { t: "Delivery", d: "Qualified meetings + insights" },
-  ];
+  const box = {
+    background: "rgba(255,255,255,0.06)",
+    borderRadius: "16px",
+    padding: "16px",
+    transition: "0.3s",
+  };
+
+  const fadeIn = {
+    animation: "fadeIn 0.8s ease-out",
+  };
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-white font-sans overflow-x-hidden">
+    <div style={styles.page}>
 
       {/* NAV */}
-      <header className="fixed top-0 w-full z-50 backdrop-blur bg-[#070b14]/70 border-b border-white/10">
-        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-          <div className="text-lg font-bold tracking-wide animate-pulse">
-            Leadex <span className="text-emerald-400 text-xs">B2B Engine</span>
-          </div>
-
-          <button className="bg-emerald-500 text-black px-3 py-2 rounded-xl text-sm hover:scale-105 transition">
-            Book Call
-          </button>
+      <div style={styles.nav}>
+        <div style={styles.logo}>
+          Leadex <span style={{ color: "#34d399", fontSize: 12 }}>B2B Engine</span>
         </div>
-      </header>
+
+        <button style={styles.button}>
+          Book Call
+        </button>
+      </div>
 
       {/* HERO */}
-      <section className="pt-28 px-4 text-center">
-        <h1 className="text-3xl md:text-6xl font-bold leading-tight animate-fade-in">
-          We Book <span className="text-emerald-400">Qualified B2B Meetings</span>
+      <div style={{ ...styles.hero, ...fadeIn }}>
+        <h1 style={styles.h1}>
+          We Book <span style={{ color: "#34d399" }}>Qualified B2B Meetings</span>
         </h1>
 
-        <p className="mt-4 text-white/70 max-w-xl mx-auto text-sm md:text-base">
-          Offshore appointment setting agency helping companies scale their sales pipeline.
+        <p style={styles.p}>
+          Offshore B2B appointment setting agency helping companies scale pipeline fast.
         </p>
 
-        <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-          <button className="bg-emerald-500 text-black px-5 py-3 rounded-xl hover:scale-105 transition">
-            Book Strategy Call
-          </button>
-          <button className="border border-white/20 px-5 py-3 rounded-xl hover:bg-white/10 transition">
-            Learn More
-          </button>
+        <div style={styles.row}>
+          <button style={styles.primary}>Book Strategy Call</button>
+          <button style={styles.secondary}>Learn More</button>
         </div>
-      </section>
+      </div>
 
       {/* STATS */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 px-4 mt-10">
-        {stats.map((s) => (
-          <div key={s.label}
-            className="bg-white/5 p-4 rounded-2xl text-center hover:scale-105 transition">
-            <div className="text-emerald-400 font-bold">{s.value}</div>
-            <div className="text-xs text-white/60">{s.label}</div>
+      <div style={styles.grid4}>
+        {stats.map((s, i) => (
+          <div key={i} style={box}>
+            <div style={styles.stat}>{s.v}</div>
+            <div style={styles.small}>{s.l}</div>
           </div>
         ))}
-      </section>
+      </div>
 
       {/* SERVICES */}
-      <section className="px-4 mt-12">
-        <h2 className="text-xl font-bold mb-4">Core Services</h2>
-
-        <div className="grid md:grid-cols-3 gap-3">
-          {services.map((s) => (
-            <div key={s}
-              className="p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition hover:scale-[1.02]">
+      <div style={styles.section}>
+        <h2 style={styles.h2}>Core Services</h2>
+        <div style={styles.grid3}>
+          {services.map((s, i) => (
+            <div key={i} style={box}>
               {s}
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
       {/* INDUSTRIES */}
-      <section className="px-4 mt-12">
-        <h2 className="text-xl font-bold mb-4">Industries</h2>
-
-        <div className="flex flex-wrap gap-2">
-          {industries.map((i) => (
-            <span key={i}
-              className="px-3 py-1 bg-white/5 rounded-xl text-xs hover:bg-white/10 transition">
-              {i}
-            </span>
+      <div style={styles.section}>
+        <h2 style={styles.h2}>Industries</h2>
+        <div style={styles.wrap}>
+          {industries.map((i, idx) => (
+            <span key={idx} style={styles.tag}>{i}</span>
           ))}
         </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="px-4 mt-12">
-        <h2 className="text-xl font-bold mb-4">How It Works</h2>
-
-        <div className="grid md:grid-cols-4 gap-3">
-          {process.map((p, index) => (
-            <div key={p.t}
-              className="p-4 rounded-2xl bg-white/5 hover:scale-105 transition"
-              style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="text-emerald-400 font-bold">{p.t}</div>
-              <div className="text-xs text-white/60 mt-2">{p.d}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      </div>
 
       {/* CTA */}
-      <section className="text-center mt-16 px-4">
-        <h2 className="text-2xl font-bold">
-          Ready to scale your pipeline?
-        </h2>
-
-        <button className="mt-4 bg-emerald-500 text-black px-6 py-3 rounded-xl hover:scale-105 transition">
-          Book Strategy Call
-        </button>
-      </section>
+      <div style={styles.cta}>
+        <h2>Ready to scale your pipeline?</h2>
+        <button style={styles.primary}>Book Strategy Call</button>
+      </div>
 
       {/* FOOTER */}
-      <footer className="text-center text-white/40 text-xs mt-16 pb-10">
+      <div style={styles.footer}>
         © {new Date().getFullYear()} Leadex
-      </footer>
+      </div>
 
-      {/* SIMPLE ANIMATION STYLE */}
+      {/* ANIMATION */}
       <style>{`
-        .animate-fade-in {
-          animation: fadeIn 1s ease-out;
-        }
-
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(15px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    background: "#070b14",
+    color: "white",
+    fontFamily: "Arial",
+    minHeight: "100vh",
+    padding: 20
+  },
+  nav: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "10px 0",
+    borderBottom: "1px solid rgba(255,255,255,0.1)"
+  },
+  logo: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  button: {
+    background: "#34d399",
+    border: "none",
+    padding: "10px 16px",
+    borderRadius: 10,
+    color: "black",
+    fontWeight: "bold",
+    cursor: "pointer"
+  },
+  hero: {
+    padding: "50px 0",
+    textAlign: "center"
+  },
+  h1: {
+    fontSize: 38,
+    marginBottom: 10
+  },
+  p: {
+    color: "rgba(255,255,255,0.7)",
+    maxWidth: 500,
+    margin: "0 auto"
+  },
+  row: {
+    display: "flex",
+    gap: 10,
+    justifyContent: "center",
+    marginTop: 20,
+    flexWrap: "wrap"
+  },
+  primary: {
+    background: "#34d399",
+    border: "none",
+    padding: "10px 16px",
+    borderRadius: 10,
+    fontWeight: "bold",
+    cursor: "pointer"
+  },
+  secondary: {
+    background: "transparent",
+    border: "1px solid rgba(255,255,255,0.2)",
+    padding: "10px 16px",
+    borderRadius: 10,
+    color: "white",
+    cursor: "pointer"
+  },
+  grid4: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+    gap: 10,
+    marginTop: 20
+  },
+  grid3: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: 10
+  },
+  section: {
+    marginTop: 40
+  },
+  h2: {
+    marginBottom: 15
+  },
+  stat: {
+    color: "#34d399",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  small: {
+    fontSize: 12,
+    color: "rgba(255,255,255,0.6)"
+  },
+  wrap: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 8
+  },
+  tag: {
+    background: "rgba(255,255,255,0.06)",
+    padding: "6px 10px",
+    borderRadius: 8,
+    fontSize: 12
+  },
+  cta: {
+    marginTop: 50,
+    textAlign: "center"
+  },
+  footer: {
+    marginTop: 50,
+    textAlign: "center",
+    color: "rgba(255,255,255,0.4)",
+    fontSize: 12
+  }
+};
