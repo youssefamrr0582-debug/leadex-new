@@ -11,9 +11,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className="page">
 
-      {/* NAV */}
+      {/* NAV (clean like Belkins) */}
       <header className="nav">
         <div className="logo">Lead<span>EX</span></div>
 
@@ -24,92 +24,79 @@ export default function App() {
           <button onClick={() => scrollTo("process")}>Process</button>
         </div>
 
-        <button className="ctaBtn">Contact Us</button>
+        <button className="cta">Contact Us</button>
       </header>
 
-      {/* HERO */}
+      {/* HERO (Belkins style: simple message) */}
       <section className="hero">
-        <div className="glow"></div>
-
         <h1>
-          We Book <span>Qualified B2B Meetings</span> for Your Sales Team
+          Appointment Setting for <span>B2B Companies</span>
         </h1>
 
         <p>
-          LeadEX is a performance-driven appointment setting agency helping B2B companies scale pipeline with high-intent outbound systems.
+          We help sales teams book qualified meetings with decision makers through structured outbound systems.
         </p>
 
         <div className="heroBtns">
           <button className="primary">Contact Us</button>
           <button className="secondary" onClick={() => scrollTo("services")}>
-            Explore Services
+            Our Services
           </button>
         </div>
       </section>
 
-      {/* RESULTS */}
-      <section id="results" className="grid">
-        <div className="card">
-          <h2>10K+</h2>
-          <p>Calls Monthly</p>
-        </div>
-        <div className="card">
-          <h2>100%</h2>
-          <p>AUS Market Focus</p>
-        </div>
-        <div className="card">
-          <h2>High</h2>
-          <p>Intent Leads</p>
-        </div>
-        <div className="card">
-          <h2>&lt;1 min</h2>
-          <p>Response Time</p>
-        </div>
+      {/* RESULTS (simple proof like Belkins) */}
+      <section id="results" className="stats">
+        <div>10K+ <span>Calls Monthly</span></div>
+        <div>High Intent <span>Leads</span></div>
+        <div>100% <span>B2B Focus</span></div>
+        <div>&lt;1 min <span>Response Time</span></div>
       </section>
 
-      {/* SERVICES */}
+      {/* SERVICES (very clean like Belkins) */}
       <section id="services" className="section">
-        <h2>Core Services</h2>
+        <h2>What We Do</h2>
 
         <div className="grid">
           {[
             "B2B Appointment Setting",
-            "Cold Calling",
+            "Cold Calling Campaigns",
             "Lead Qualification",
             "Decision Maker Outreach",
-            "Pipeline Building",
-            "Offshore Sales Teams"
+            "Pipeline Generation",
+            "Dedicated Sales Teams"
           ].map((s, i) => (
-            <div key={i} className="card hover">
+            <div key={i} className="card">
               <h3>{s}</h3>
-              <p>We generate high-quality sales-ready meetings for your business.</p>
+              <p>We build outbound systems that deliver sales-ready meetings.</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* INDUSTRIES */}
+      {/* INDUSTRIES (Belkins style tags) */}
       <section id="industries" className="section">
         <h2>Industries</h2>
+
         <div className="tags">
-          {["SaaS","IT","Cybersecurity","Telecom","Logistics","Energy"].map((i, idx) => (
-            <span key={idx} className="tag">{i}</span>
+          {["SaaS","IT","Cybersecurity","Telecom","Energy","Logistics","Finance"].map((i, idx) => (
+            <span key={idx}>{i}</span>
           ))}
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* PROCESS (simple 4 steps like Belkins) */}
       <section id="process" className="section">
         <h2>How It Works</h2>
 
         <div className="grid">
           {[
-            ["Strategy","Define ICP & offer"],
-            ["Setup","Scripts + training"],
-            ["Execution","Outbound calls & booking"],
-            ["Delivery","Qualified meetings"]
+            ["Strategy","Define ICP and targeting"],
+            ["Setup","Build scripts & train agents"],
+            ["Execution","Outbound calling campaigns"],
+            ["Delivery","Qualified booked meetings"]
           ].map((p, i) => (
-            <div key={i} className="card hover">
+            <div key={i} className="card">
               <h3>{p[0]}</h3>
               <p>{p[1]}</p>
             </div>
@@ -117,9 +104,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA (Belkins simple end section) */}
       <section className="cta">
-        <h2>Ready to scale your pipeline?</h2>
+        <h2>Let’s build your pipeline</h2>
         <button className="primary">Contact Us</button>
       </section>
 
@@ -138,11 +125,11 @@ export default function App() {
           font-family: Arial;
         }
 
-        .app {
+        .page {
           padding:20px;
         }
 
-        /* NAV */
+        /* NAV (Belkins clean) */
         .nav {
           display:flex;
           justify-content:space-between;
@@ -161,15 +148,16 @@ export default function App() {
 
         .links {
           display:flex;
-          gap:12px;
+          gap:15px;
         }
 
         .links button {
           background:none;
           border:none;
           color:white;
-          opacity:0.7;
+          opacity:0.6;
           cursor:pointer;
+          transition:0.2s;
         }
 
         .links button:hover {
@@ -177,7 +165,7 @@ export default function App() {
           color:#34d399;
         }
 
-        .ctaBtn {
+        .cta {
           background:#34d399;
           border:none;
           padding:8px 12px;
@@ -185,15 +173,14 @@ export default function App() {
           cursor:pointer;
         }
 
-        /* HERO */
+        /* HERO (very simple like Belkins) */
         .hero {
           text-align:center;
-          padding:80px 20px;
-          position:relative;
+          padding:90px 20px;
         }
 
         .hero h1 {
-          font-size:40px;
+          font-size:42px;
         }
 
         .hero span {
@@ -230,17 +217,34 @@ export default function App() {
           cursor:pointer;
         }
 
-        /* GLOW */
-        .glow {
-          position:absolute;
-          width:300px;
-          height:300px;
-          background:#34d39933;
-          filter:blur(80px);
-          top:40%;
-          left:50%;
-          transform:translate(-50%,-50%);
-          z-index:-1;
+        /* STATS (Belkins style minimal proof row) */
+        .stats {
+          display:flex;
+          justify-content:center;
+          gap:30px;
+          flex-wrap:wrap;
+          margin-top:40px;
+          opacity:0.9;
+        }
+
+        .stats div {
+          text-align:center;
+        }
+
+        .stats span {
+          display:block;
+          font-size:12px;
+          opacity:0.6;
+        }
+
+        /* SECTIONS */
+        .section {
+          margin-top:80px;
+          text-align:center;
+        }
+
+        h2 {
+          margin-bottom:20px;
         }
 
         /* GRID */
@@ -248,29 +252,25 @@ export default function App() {
           display:grid;
           grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
           gap:12px;
-          margin-top:40px;
+          margin-top:20px;
         }
 
         .card {
-          background:rgba(255,255,255,0.05);
+          background:rgba(255,255,255,0.04);
           padding:16px;
-          border-radius:12px;
-          transition:0.3s;
+          border-radius:10px;
+          transition:0.2s;
         }
 
         .card:hover {
-          transform:translateY(-5px);
-          background:rgba(52,211,153,0.1);
+          transform:translateY(-4px);
+          background:rgba(52,211,153,0.08);
         }
 
-        /* SECTIONS */
-        .section {
-          margin-top:70px;
-          text-align:center;
-        }
-
-        h2 {
-          margin-bottom:20px;
+        .card p {
+          opacity:0.6;
+          font-size:12px;
+          margin-top:6px;
         }
 
         /* TAGS */
@@ -281,29 +281,30 @@ export default function App() {
           gap:8px;
         }
 
-        .tag {
+        .tags span {
           background:rgba(255,255,255,0.05);
           padding:6px 10px;
           border-radius:8px;
           font-size:12px;
+          opacity:0.7;
         }
 
         /* CTA */
         .cta {
           text-align:center;
-          margin-top:80px;
+          margin-top:90px;
         }
 
         footer {
           text-align:center;
           margin-top:50px;
-          opacity:0.5;
+          opacity:0.4;
           font-size:12px;
         }
 
         /* MOBILE */
         @media(max-width:600px){
-          .hero h1 { font-size:26px; }
+          .hero h1 { font-size:28px; }
           .links { display:none; }
         }
       `}</style>
