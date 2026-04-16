@@ -1,118 +1,95 @@
 export default function App() {
-  const services = [
-    "B2B Appointment Setting",
-    "Cold Calling & Lead Qualification",
-    "High-Intent Lead Generation",
-    "Decision Maker Outreach",
-    "Sales Pipeline Building",
-    "Dedicated SDR Teams",
-  ];
-
-  const industries = [
-    "Telecommunications",
-    "Cloud Solutions",
-    "Cybersecurity",
-    "Data Connectivity",
-    "IT Services",
-    "Commercial Cleaning",
-    "Electricity & Solar",
-    "Warehousing & Logistics",
-  ];
-
-  const process = [
-    { title: "Research ICP", desc: "Define ideal customer profile in AU market." },
-    { title: "Build Target List", desc: "Find verified decision makers." },
-    { title: "Outreach", desc: "Cold email + LinkedIn + calls." },
-    { title: "Qualify Leads", desc: "Filter high-intent prospects." },
-    { title: "Book Meetings", desc: "Deliver ready-to-close appointments." },
-  ];
-
   return (
-    <div style={{ fontFamily: "Arial", background: "#f7f4ee" }}>
+    <div style={{ fontFamily: "Arial", background: "#0b0b0f", color: "white" }}>
 
       {/* HERO */}
-      <section style={{ padding: "90px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: 60 }}>
-          Lead<span style={{ color: "orange" }}>EX</span>
+      <section style={{ padding: "100px 20px", textAlign: "center", background: "linear-gradient(135deg,#111,#1a1a1a)" }}>
+        <h1 style={{ fontSize: 56, marginBottom: 20 }}>
+          Done-For-You <span style={{ color: "orange" }}>Appointment Setting</span>
         </h1>
 
-        <p style={{ maxWidth: 700, margin: "20px auto", color: "#555" }}>
-          High-quality B2B lead generation & appointment setting for the Australian market.
+        <p style={{ maxWidth: 750, margin: "auto", color: "#ccc", fontSize: 18 }}>
+          We book high-quality sales meetings directly with decision-makers in your target market.
+          No cold leads. No wasted time. Only qualified opportunities.
         </p>
 
         <a
-          href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
+          href="mailto:info@lea-dex.com?subject=Appointment Setting Inquiry"
           style={{
             display: "inline-block",
-            marginTop: 20,
+            marginTop: 30,
             background: "orange",
-            color: "white",
-            padding: "12px 28px",
+            color: "#111",
+            padding: "14px 32px",
             borderRadius: 30,
-            textDecoration: "none",
+            fontWeight: "bold",
+            textDecoration: "none"
           }}
         >
-          Get Started
+          Book a Call
         </a>
       </section>
 
-      {/* SERVICES */}
-      <section style={{ textAlign: "center", padding: 60 }}>
-        <h2>What We Do</h2>
+      {/* VALUE STRIP */}
+      <section style={{ padding: 60, textAlign: "center", background: "#111" }}>
+        <h2>What You Get</h2>
 
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          {services.map((s, i) => (
-            <div key={i} style={{ background: "white", padding: 15, borderRadius: 12 }}>
-              {s}
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 20, marginTop: 30 }}>
+          {[
+            "Qualified Sales Meetings",
+            "Decision Makers Only",
+            "B2B Targeted Outreach",
+            "Fully Managed SDR System",
+            "Scalable Pipeline Growth",
+          ].map((item, i) => (
+            <div key={i} style={{ background: "#1a1a1a", padding: 20, borderRadius: 12, minWidth: 200 }}>
+              {item}
             </div>
           ))}
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section style={{ background: "#fffaf2", padding: 60, textAlign: "center" }}>
-        <h2>How It Works</h2>
+      {/* HOW IT WORKS */}
+      <section style={{ padding: 70, background: "#0b0b0f" }}>
+        <h2 style={{ textAlign: "center" }}>How It Works</h2>
 
-        <div style={{ maxWidth: 600, margin: "auto", textAlign: "left" }}>
-          {process.map((p, i) => (
-            <div key={i} style={{ marginBottom: 15 }}>
-              <b>{i + 1}. {p.title}</b>
-              <div style={{ color: "#555" }}>{p.desc}</div>
+        <div style={{ maxWidth: 800, margin: "40px auto" }}>
+          {[
+            { t: "Define ICP", d: "We identify your ideal customer profile in detail." },
+            { t: "Build Prospect List", d: "We source verified decision-makers in your niche." },
+            { t: "Multi-Channel Outreach", d: "Email, LinkedIn, and cold calling campaigns." },
+            { t: "Qualification", d: "We filter only high-intent leads." },
+            { t: "Booked Meetings", d: "You receive ready-to-close appointments." },
+          ].map((step, i) => (
+            <div key={i} style={{ marginBottom: 20, padding: 20, background: "#111", borderRadius: 12 }}>
+              <b style={{ color: "orange" }}>{i + 1}. {step.t}</b>
+              <div style={{ color: "#ccc", marginTop: 5 }}>{step.d}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section style={{ padding: 60, textAlign: "center", background: "white" }}>
-        <h2>Industries</h2>
-
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10 }}>
-          {industries.map((i, idx) => (
-            <span key={idx} style={{ background: "#f7f4ee", padding: "8px 16px", borderRadius: 20 }}>
-              {i}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section style={{ background: "#111", color: "white", textAlign: "center", padding: 60 }}>
-        <h2>Contact Us</h2>
+      {/* FINAL CTA */}
+      <section style={{ padding: 80, textAlign: "center", background: "linear-gradient(135deg,#111,#1a1a1a)" }}>
+        <h2>Ready to Scale Your Sales Pipeline?</h2>
+        <p style={{ color: "#ccc", maxWidth: 600, margin: "20px auto" }}>
+          Get consistent meetings with qualified buyers in your industry starting this month.
+        </p>
 
         <a
-          href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
+          href="mailto:info@lea-dex.com?subject=Let’s Get Started"
           style={{
             display: "inline-block",
             marginTop: 20,
             background: "orange",
-            color: "white",
-            padding: "12px 28px",
+            color: "#111",
+            padding: "14px 32px",
             borderRadius: 30,
-            textDecoration: "none",
+            fontWeight: "bold",
+            textDecoration: "none"
           }}
         >
-          Send Email
+          Get Started
         </a>
       </section>
 
