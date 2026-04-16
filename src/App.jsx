@@ -27,6 +27,13 @@ export default function App() {
     { title: "Book Meetings", desc: "Face-to-face, video, or call meetings with buyers." },
   ];
 
+  const inputStyle = {
+    padding: 12,
+    borderRadius: 8,
+    border: "none",
+    outline: "none",
+  };
+
   const container = {
     maxWidth: 1100,
     margin: "auto",
@@ -36,20 +43,28 @@ export default function App() {
   return (
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
+      {/* HEADER BRAND */}
+      <div style={{ textAlign: "center", paddingTop: 25, color: "#888", fontSize: 14 }}>
+        LeadEX • B2B Appointment Setting Agency
+      </div>
+
       {/* HERO */}
       <section style={{ padding: "80px 20px", textAlign: "center" }}>
         <div style={container}>
-          <h1 style={{ fontSize: "clamp(32px, 6vw, 58px)", marginBottom: 10 }}>
-            Turn Conversations into <span style={{ color: "orange" }}>Conversions</span>
+
+          <h1 style={{ fontSize: "clamp(34px, 6vw, 58px)", marginBottom: 10 }}>
+            Lead<span style={{ color: "orange" }}>EX</span>
           </h1>
 
           <h3 style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}>
-            B2B Appointment Setting Services for High-Growth Sales Teams
+            Turn Conversations into Conversions
           </h3>
 
-          <p style={{ color: "#666", fontSize: 16, lineHeight: 1.6 }}>
-            We deliver qualified B2B meetings with decision-makers in Australia —
-            including face-to-face meetings, video conferences, and sales calls.
+          <p style={{ color: "#666", fontSize: 16, lineHeight: 1.6, maxWidth: 850, margin: "auto" }}>
+            We deliver qualified B2B meetings with real decision-makers in the Australian market —
+            including face-to-face meetings, video conferences, and structured sales calls.
+            <br /><br />
+            Stop chasing leads. Start speaking directly to real buyers and growing your pipeline.
           </p>
 
           <a
@@ -59,7 +74,7 @@ export default function App() {
               marginTop: 25,
               background: "orange",
               color: "white",
-              padding: "14px 28px",
+              padding: "14px 30px",
               borderRadius: 30,
               textDecoration: "none",
               fontWeight: "bold",
@@ -67,6 +82,7 @@ export default function App() {
           >
             Book Qualified Meetings
           </a>
+
         </div>
       </section>
 
@@ -76,17 +92,15 @@ export default function App() {
 
           <h2 style={{ fontSize: 32 }}>What We Do</h2>
 
-          <p style={{ maxWidth: 700, margin: "10px auto 40px", color: "#666" }}>
-            We help B2B companies build predictable pipelines with real decision-makers.
+          <p style={{ color: "#666", maxWidth: 700, margin: "10px auto 40px" }}>
+            We help B2B companies build predictable sales pipelines with real, qualified meetings.
           </p>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: 15,
-            }}
-          >
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 15,
+          }}>
             {services.map((s, i) => (
               <div
                 key={i}
@@ -102,6 +116,7 @@ export default function App() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -158,17 +173,15 @@ export default function App() {
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
         <div style={container}>
 
-          <h2>Industries</h2>
+          <h2>Industries We Work With</h2>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: 10,
-              marginTop: 20,
-            }}
-          >
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 10,
+            marginTop: 20,
+          }}>
             {industries.map((i, idx) => (
               <span
                 key={idx}
@@ -233,13 +246,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* FOOTER */}
+      <div style={{ padding: 25, textAlign: "center", color: "#777", fontSize: 13 }}>
+        © {new Date().getFullYear()} LeadEX. All rights reserved.
+      </div>
+
     </div>
   );
 }
-
-const inputStyle = {
-  padding: 12,
-  borderRadius: 8,
-  border: "none",
-  outline: "none",
-};
