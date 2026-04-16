@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
+
 export default function App() {
+
   const services = [
     "B2B Appointment Setting",
     "Cold Calling & Lead Qualification",
@@ -27,47 +30,77 @@ export default function App() {
     { title: "Book Meetings", desc: "Face-to-face, video, or call meetings with buyers." },
   ];
 
-  const inputStyle = {
-    padding: 12,
-    borderRadius: 8,
-    border: "none",
-    outline: "none",
-  };
-
   const container = {
     maxWidth: 1100,
     margin: "auto",
     padding: "0 20px",
   };
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
-      {/* HEADER BRAND */}
-      <div style={{ textAlign: "center", paddingTop: 25, color: "#888", fontSize: 14 }}>
+      {/* TOP BRAND */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        style={{ textAlign: "center", paddingTop: 25, color: "#888", fontSize: 14 }}
+      >
         LeadEX • B2B Appointment Setting Agency
-      </div>
+      </motion.div>
 
       {/* HERO */}
-      <section style={{ padding: "80px 20px", textAlign: "center" }}>
+      <motion.section
+        initial="hidden"
+        animate="show"
+        variants={fadeUp}
+        style={{ padding: "80px 20px", textAlign: "center" }}
+      >
         <div style={container}>
 
-          <h1 style={{ fontSize: "clamp(34px, 6vw, 58px)", marginBottom: 10 }}>
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{ fontSize: "clamp(34px, 6vw, 58px)", marginBottom: 10 }}
+          >
             Lead<span style={{ color: "orange" }}>EX</span>
-          </h1>
+          </motion.h1>
 
-          <h3 style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}>
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}
+          >
             Turn Conversations into Conversions
-          </h3>
+          </motion.h3>
 
-          <p style={{ color: "#666", fontSize: 16, lineHeight: 1.6, maxWidth: 850, margin: "auto" }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{ color: "#666", fontSize: 16, lineHeight: 1.6, maxWidth: 850, margin: "auto" }}
+          >
             We deliver qualified B2B meetings with real decision-makers in the Australian market —
             including face-to-face meetings, video conferences, and structured sales calls.
-            <br /><br />
-            Stop chasing leads. Start speaking directly to real buyers and growing your pipeline.
-          </p>
+          </motion.p>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             href="#contact"
             style={{
               display: "inline-block",
@@ -81,10 +114,10 @@ export default function App() {
             }}
           >
             Book Qualified Meetings
-          </a>
+          </motion.a>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* WHAT WE DO */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
@@ -93,7 +126,7 @@ export default function App() {
           <h2 style={{ fontSize: 32 }}>What We Do</h2>
 
           <p style={{ color: "#666", maxWidth: 700, margin: "10px auto 40px" }}>
-            We help B2B companies build predictable sales pipelines with real, qualified meetings.
+            We build predictable pipelines with real buyers, not random leads.
           </p>
 
           <div style={{
@@ -102,8 +135,14 @@ export default function App() {
             gap: 15,
           }}>
             {services.map((s, i) => (
-              <div
+              <motion.div
                 key={i}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.03 }}
                 style={{
                   background: "white",
                   padding: 16,
@@ -113,7 +152,7 @@ export default function App() {
                 }}
               >
                 {s}
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -129,8 +168,14 @@ export default function App() {
           </h2>
 
           {steps.map((step, i) => (
-            <div
+            <motion.div
               key={i}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
               style={{
                 display: "flex",
                 gap: 12,
@@ -163,7 +208,7 @@ export default function App() {
                   {step.desc}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
 
         </div>
@@ -183,8 +228,9 @@ export default function App() {
             marginTop: 20,
           }}>
             {industries.map((i, idx) => (
-              <span
+              <motion.span
                 key={idx}
+                whileHover={{ scale: 1.1 }}
                 style={{
                   background: "white",
                   padding: "8px 14px",
@@ -194,7 +240,7 @@ export default function App() {
                 }}
               >
                 {i}
-              </span>
+              </motion.span>
             ))}
           </div>
 
@@ -223,11 +269,13 @@ export default function App() {
             }}
             style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 20 }}
           >
-            <input name="name" placeholder="Your Name" required style={inputStyle} />
-            <input name="email" placeholder="Your Email" required style={inputStyle} />
-            <textarea name="message" placeholder="Your Message" rows="5" required style={inputStyle} />
+            <input name="name" placeholder="Your Name" required style={{ padding: 12, borderRadius: 8 }} />
+            <input name="email" placeholder="Your Email" required style={{ padding: 12, borderRadius: 8 }} />
+            <textarea name="message" placeholder="Your Message" rows="5" required style={{ padding: 12, borderRadius: 8 }} />
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
               type="submit"
               style={{
                 background: "orange",
@@ -240,7 +288,7 @@ export default function App() {
               }}
             >
               Send Message
-            </button>
+            </motion.button>
           </form>
 
         </div>
