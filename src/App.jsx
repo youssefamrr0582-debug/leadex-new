@@ -23,14 +23,13 @@ export default function App() {
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
       {/* HERO */}
-      <section style={{ padding: "90px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: "60px", margin: 0 }}>
+      <section style={{ textAlign: "center", padding: "90px 20px" }}>
+        <h1 style={{ fontSize: 60, margin: 0 }}>
           Lead<span style={{ color: "orange" }}>EX</span>
         </h1>
 
-        <p style={{ maxWidth: 650, margin: "20px auto", fontSize: 18, color: "#444" }}>
-          We generate high-quality B2B leads and book qualified appointments
-          with decision makers in the Australian market.
+        <p style={{ maxWidth: 650, margin: "20px auto", color: "#555" }}>
+          We help B2B companies generate high-quality leads and book meetings with real decision makers in the Australian market.
         </p>
 
         <a
@@ -43,7 +42,6 @@ export default function App() {
             padding: "12px 28px",
             borderRadius: 30,
             textDecoration: "none",
-            fontWeight: "bold",
           }}
         >
           Get Started
@@ -51,7 +49,7 @@ export default function App() {
       </section>
 
       {/* SERVICES */}
-      <section style={{ padding: "60px 20px", textAlign: "center" }}>
+      <section style={{ textAlign: "center", padding: "60px 20px" }}>
         <h2>What We Do</h2>
 
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 20 }}>
@@ -59,7 +57,7 @@ export default function App() {
             <div
               key={i}
               style={{
-                background: "#fff",
+                background: "white",
                 padding: 15,
                 borderRadius: 12,
                 minWidth: 220,
@@ -73,8 +71,8 @@ export default function App() {
       </section>
 
       {/* INDUSTRIES */}
-      <section style={{ padding: "60px 20px", textAlign: "center", background: "#fff" }}>
-        <h2>Industries We Target</h2>
+      <section style={{ textAlign: "center", padding: "60px 20px", background: "#fff" }}>
+        <h2>Industries</h2>
 
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginTop: 20 }}>
           {industries.map((item, i) => (
@@ -84,7 +82,6 @@ export default function App() {
                 background: "#f7f4ee",
                 padding: "8px 16px",
                 borderRadius: 20,
-                fontSize: 14,
               }}
             >
               {item}
@@ -93,9 +90,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: "70px 20px", textAlign: "center", background: "#111", color: "white" }}>
-        <h2>Ready to Scale Your Pipeline?</h2>
+      {/* CONTACT */}
+      <section style={{ textAlign: "center", padding: "60px 20px", background: "#111", color: "white" }}>
+        <h2>Contact Us</h2>
 
         <a
           href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
@@ -109,14 +106,9 @@ export default function App() {
             textDecoration: "none",
           }}
         >
-          Contact Us
+          Send Email
         </a>
       </section>
-
-      {/* FOOTER */}
-      <footer style={{ textAlign: "center", padding: 20, fontSize: 12, color: "#666" }}>
-        © {new Date().getFullYear()} LeadEX. All rights reserved.
-      </footer>
 
     </div>
   );
