@@ -22,11 +22,11 @@ export default function App() {
   const steps = [
     {
       title: "Define Your ICP",
-      desc: "We analyze your ideal customer profile and target market in detail.",
+      desc: "We analyze your ideal customer profile and target market in Australia.",
     },
     {
       title: "Build Target List",
-      desc: "We collect verified decision-makers from your industry in the Australian market.",
+      desc: "We source verified decision-makers aligned with your offer.",
     },
     {
       title: "Multi-Channel Outreach",
@@ -34,11 +34,11 @@ export default function App() {
     },
     {
       title: "Qualify Leads",
-      desc: "We filter only high-intent prospects that match your criteria.",
+      desc: "We filter only high-intent prospects ready for sales conversations.",
     },
     {
       title: "Book Meetings",
-      desc: "You receive ready-to-close appointments directly in your calendar.",
+      desc: "You receive face-to-face, video, or call meetings with real buyers.",
     },
   ];
 
@@ -46,28 +46,40 @@ export default function App() {
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
       {/* HERO */}
-      <section style={{ padding: "90px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: 58, marginBottom: 10 }}>
-          Lead<span style={{ color: "orange" }}>EX</span>
+      <section style={{ padding: "100px 20px", textAlign: "center" }}>
+        
+        <h1 style={{ fontSize: 58, marginBottom: 15 }}>
+          Turn Conversations into <span style={{ color: "orange" }}>Conversions</span>
         </h1>
 
-        <p style={{ maxWidth: 750, margin: "auto", color: "#555", fontSize: 18 }}>
-          We deliver high-quality B2B appointments with real decision-makers in the Australian market.
+        <h3 style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}>
+          B2B Appointment Setting Services for High-Growth Sales Teams
+        </h3>
+
+        <p style={{ maxWidth: 850, margin: "auto", color: "#555", fontSize: 17, lineHeight: 1.6 }}>
+          Stop chasing leads. Start speaking directly to real buyers.
+          <br /><br />
+          We consistently deliver qualified B2B meetings with verified decision-makers in the Australian market —
+          including <b>face-to-face meetings</b>, <b>video conferences</b>, and <b>structured sales calls</b>.
+          <br /><br />
+          We help SaaS, technology, and service-based companies accelerate pipeline growth without the cost,
+          delay, and complexity of building an internal SDR team.
         </p>
 
         <a
           href="#contact"
           style={{
             display: "inline-block",
-            marginTop: 25,
+            marginTop: 30,
             background: "orange",
             color: "white",
-            padding: "14px 30px",
+            padding: "14px 32px",
             borderRadius: 30,
             textDecoration: "none",
+            fontWeight: "bold",
           }}
         >
-          Get Started
+          Book Qualified Meetings
         </a>
       </section>
 
@@ -97,7 +109,7 @@ export default function App() {
       <section style={{ padding: 70, background: "#111", color: "white" }}>
         <h2 style={{ textAlign: "center" }}>How It Works</h2>
 
-        <div style={{ maxWidth: 800, margin: "40px auto" }}>
+        <div style={{ maxWidth: 850, margin: "40px auto" }}>
           {steps.map((step, i) => (
             <div
               key={i}
@@ -204,6 +216,7 @@ export default function App() {
           </button>
         </form>
       </section>
+
     </div>
   );
 }
