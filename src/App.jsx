@@ -19,17 +19,25 @@ export default function App() {
     "Warehousing & Logistics",
   ];
 
+  const process = [
+    { title: "Research ICP", desc: "Define ideal customer profile in AU market." },
+    { title: "Build Target List", desc: "Find verified decision makers." },
+    { title: "Outreach", desc: "Cold email + LinkedIn + calls." },
+    { title: "Qualify Leads", desc: "Filter high-intent prospects." },
+    { title: "Book Meetings", desc: "Deliver ready-to-close appointments." },
+  ];
+
   return (
-    <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
+    <div style={{ fontFamily: "Arial", background: "#f7f4ee" }}>
 
       {/* HERO */}
-      <section style={{ textAlign: "center", padding: "90px 20px" }}>
-        <h1 style={{ fontSize: 60, margin: 0 }}>
+      <section style={{ padding: "90px 20px", textAlign: "center" }}>
+        <h1 style={{ fontSize: 60 }}>
           Lead<span style={{ color: "orange" }}>EX</span>
         </h1>
 
-        <p style={{ maxWidth: 650, margin: "20px auto", color: "#555" }}>
-          We help B2B companies generate high-quality leads and book meetings with real decision makers in the Australian market.
+        <p style={{ maxWidth: 700, margin: "20px auto", color: "#555" }}>
+          High-quality B2B lead generation & appointment setting for the Australian market.
         </p>
 
         <a
@@ -49,49 +57,47 @@ export default function App() {
       </section>
 
       {/* SERVICES */}
-      <section style={{ textAlign: "center", padding: "60px 20px" }}>
+      <section style={{ textAlign: "center", padding: 60 }}>
         <h2>What We Do</h2>
 
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 20 }}>
-          {services.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                background: "white",
-                padding: 15,
-                borderRadius: 12,
-                minWidth: 220,
-                boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
-              }}
-            >
-              {item}
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
+          {services.map((s, i) => (
+            <div key={i} style={{ background: "white", padding: 15, borderRadius: 12 }}>
+              {s}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section style={{ background: "#fffaf2", padding: 60, textAlign: "center" }}>
+        <h2>How It Works</h2>
+
+        <div style={{ maxWidth: 600, margin: "auto", textAlign: "left" }}>
+          {process.map((p, i) => (
+            <div key={i} style={{ marginBottom: 15 }}>
+              <b>{i + 1}. {p.title}</b>
+              <div style={{ color: "#555" }}>{p.desc}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section style={{ textAlign: "center", padding: "60px 20px", background: "#fff" }}>
+      <section style={{ padding: 60, textAlign: "center", background: "white" }}>
         <h2>Industries</h2>
 
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginTop: 20 }}>
-          {industries.map((item, i) => (
-            <span
-              key={i}
-              style={{
-                background: "#f7f4ee",
-                padding: "8px 16px",
-                borderRadius: 20,
-              }}
-            >
-              {item}
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10 }}>
+          {industries.map((i, idx) => (
+            <span key={idx} style={{ background: "#f7f4ee", padding: "8px 16px", borderRadius: 20 }}>
+              {i}
             </span>
           ))}
         </div>
       </section>
 
       {/* CONTACT */}
-      <section style={{ textAlign: "center", padding: "60px 20px", background: "#111", color: "white" }}>
+      <section style={{ background: "#111", color: "white", textAlign: "center", padding: 60 }}>
         <h2>Contact Us</h2>
 
         <a
