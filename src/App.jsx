@@ -1,289 +1,89 @@
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { Mail, CheckCircle, ArrowRight } from "lucide-react";
 
-export default function WebsiteMockup() {
+export default function App() {
+  const services = [
+    "B2B Appointment Setting",
+    "Cold Calling & Lead Qualification",
+    "High-Intent Lead Generation",
+    "Decision Maker Outreach",
+    "Sales Pipeline Building",
+    "Dedicated SDR Teams",
+  ];
 
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("active");
-      });
-    }, { threshold: 0.12 });
-
-    els.forEach(el => obs.observe(el));
-  }, []);
+  const industries = [
+    "Telecommunications",
+    "Cloud Solutions",
+    "Cybersecurity",
+    "Data Connectivity",
+    "IT Services",
+    "Commercial Cleaning",
+    "Electricity & Solar",
+    "Warehousing & Logistics",
+  ];
 
   return (
-    <div className="app">
-
-      {/* BACKGROUND */}
-      <div className="bg" />
-      <div className="grid" />
-
-      {/* NAV */}
-      <header className="nav reveal">
-        <div className="logo">Lead<span>EX</span></div>
-
-        <div className="links">
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-        </div>
-
-        <button className="cta">Book Call</button>
-      </header>
+    <div className="min-h-screen bg-[#f7f4ee] text-black">
 
       {/* HERO */}
-      <section className="hero reveal">
-
-        <div className="glow" />
-
-        <h1>
-          We Build <span>Predictable B2B Revenue Systems</span>
+      <section className="px-6 py-24 text-center">
+        <h1 className="text-5xl font-bold">
+          Lead<span className="text-orange-500">EX</span>
         </h1>
 
-        <p>
-          AI-assisted outbound systems that connect you with real decision-makers and generate high-quality sales meetings.
+        <p className="mt-6 text-gray-700 max-w-2xl mx-auto">
+          High-quality B2B lead generation & appointment setting for the Australian market.
         </p>
 
-        <button className="primary">Start Growth</button>
+        <div className="mt-8">
+          <a
+            href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
+            className="bg-orange-500 text-white px-6 py-3 rounded-full inline-flex items-center gap-2"
+          >
+            Get Started <ArrowRight size={18} />
+          </a>
+        </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="section reveal">
-        <h2>Core Services</h2>
+      <section className="px-6 py-20">
+        <h2 className="text-3xl font-semibold text-center">Services</h2>
 
-        <div className="gridCards">
-          {[
-            ["Appointment Setting","We book meetings with real decision-makers."],
-            ["Cold Outreach","High-performance B2B outbound systems."],
-            ["Lead Qualification","We filter only sales-ready opportunities."],
-            ["Pipeline Building","Predictable revenue engine setup."]
-          ].map((s,i)=>(
-            <div key={i} className="card">
-              <h3>{s[0]}</h3>
-              <p>{s[1]}</p>
+        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
+          {services.map((s, i) => (
+            <div key={i} className="p-6 bg-white rounded-xl shadow">
+              <CheckCircle className="text-orange-500 mb-2" />
+              {s}
             </div>
           ))}
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section id="process" className="section reveal">
-        <h2>How It Works</h2>
+      {/* INDUSTRIES */}
+      <section className="px-6 py-20 bg-white">
+        <h2 className="text-3xl font-semibold text-center">Industries</h2>
 
-        <div className="gridCards">
-          {[
-            ["1. Strategy","Define ICP & targeting"],
-            ["2. Setup","Scripts + systems"],
-            ["3. Execution","Outbound campaigns"],
-            ["4. Delivery","Qualified meetings"]
-          ].map((p,i)=>(
-            <div key={i} className="card">
-              <h3>{p[0]}</h3>
-              <p>{p[1]}</p>
-            </div>
+        <div className="flex flex-wrap justify-center gap-3 mt-8">
+          {industries.map((ind, i) => (
+            <span key={i} className="px-4 py-2 bg-[#f7f4ee] rounded-full text-sm">
+              {ind}
+            </span>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="cta reveal">
-        <h2>Ready to scale predictable revenue?</h2>
-        <button className="primary">Book Strategy Call</button>
+      {/* CONTACT */}
+      <section className="px-6 py-20 text-center bg-black text-white">
+        <h2 className="text-3xl font-semibold">Contact Us</h2>
+
+        <a
+          href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
+          className="mt-6 inline-flex items-center gap-2 bg-orange-500 px-6 py-3 rounded-full"
+        >
+          <Mail size={18} /> Send Email
+        </a>
       </section>
 
-      {/* FOOTER */}
-      <footer className="reveal">
-        © {new Date().getFullYear()} LeadEX
-      </footer>
-
-      {/* STYLE */}
-      <style>{`
-        body {
-          margin:0;
-          font-family: Inter, Arial;
-          background:#070b14;
-          color:white;
-        }
-
-        .app {
-          max-width:1100px;
-          margin:auto;
-          padding:20px;
-        }
-
-        /* AI BACKGROUND */
-        .bg {
-          position:fixed;
-          inset:0;
-          background:
-            radial-gradient(circle at 20% 20%, rgba(16,185,129,0.18), transparent 40%),
-            radial-gradient(circle at 80% 50%, rgba(59,130,246,0.14), transparent 45%),
-            radial-gradient(circle at 50% 100%, rgba(255,90,31,0.10), transparent 50%);
-          filter: blur(40px);
-          z-index:-2;
-        }
-
-        .grid {
-          position:fixed;
-          inset:0;
-          background-image:
-            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-          background-size:60px 60px;
-          z-index:-1;
-          opacity:0.4;
-        }
-
-        /* NAV */
-        .nav {
-          display:flex;
-          justify-content:space-between;
-          align-items:center;
-          padding:14px 0;
-          backdrop-filter: blur(12px);
-          position:sticky;
-          top:0;
-        }
-
-        .logo {
-          font-weight:900;
-          font-size:20px;
-        }
-
-        .logo span { color:#10b981; }
-
-        .links a {
-          margin:0 12px;
-          color:#aaa;
-          text-decoration:none;
-        }
-
-        .links a:hover { color:white; }
-
-        .cta {
-          background:#10b981;
-          border:none;
-          padding:10px 14px;
-          border-radius:12px;
-          color:black;
-          font-weight:700;
-          cursor:pointer;
-        }
-
-        /* HERO */
-        .hero {
-          text-align:center;
-          padding:130px 20px;
-          position:relative;
-        }
-
-        .hero h1 {
-          font-size:52px;
-          font-weight:900;
-          line-height:1.1;
-        }
-
-        .hero span { color:#10b981; }
-
-        .hero p {
-          max-width:720px;
-          margin:20px auto;
-          color:#aaa;
-          line-height:1.7;
-        }
-
-        .primary {
-          background:#10b981;
-          border:none;
-          padding:14px 22px;
-          border-radius:14px;
-          font-weight:700;
-          cursor:pointer;
-          transition:0.3s;
-        }
-
-        .primary:hover {
-          transform:translateY(-4px) scale(1.03);
-        }
-
-        .glow {
-          position:absolute;
-          width:500px;
-          height:500px;
-          background:rgba(16,185,129,0.15);
-          filter:blur(120px);
-          top:40%;
-          left:50%;
-          transform:translate(-50%,-50%);
-          animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-          0%,100% { transform:translate(-50%,-50%); }
-          50% { transform:translate(-50%,-60%); }
-        }
-
-        /* SECTIONS */
-        .section, .cta {
-          margin-top:90px;
-          text-align:center;
-        }
-
-        .gridCards {
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-          gap:18px;
-          margin-top:20px;
-        }
-
-        /* CARDS (10/10 LOOK) */
-        .card {
-          background:rgba(255,255,255,0.05);
-          border:1px solid rgba(255,255,255,0.08);
-          backdrop-filter: blur(14px);
-          padding:22px;
-          border-radius:20px;
-          transition:0.35s;
-        }
-
-        .card:hover {
-          transform:translateY(-12px) scale(1.03);
-          border-color:#10b981;
-          box-shadow:0 30px 80px rgba(0,0,0,0.3);
-        }
-
-        .card p {
-          color:#aaa;
-          font-size:14px;
-          line-height:1.6;
-        }
-
-        /* REVEAL ANIMATION */
-        .reveal {
-          opacity:0;
-          transform:translateY(40px);
-          transition:1s cubic-bezier(0.2,0.8,0.2,1);
-        }
-
-        .reveal.active {
-          opacity:1;
-          transform:translateY(0);
-        }
-
-        footer {
-          text-align:center;
-          margin-top:80px;
-          color:#666;
-        }
-
-        /* MOBILE */
-        @media(max-width:768px){
-          .hero h1 { font-size:30px; }
-          .links { display:none; }
-        }
-      `}</style>
     </div>
   );
 }
