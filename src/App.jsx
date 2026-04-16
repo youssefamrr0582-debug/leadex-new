@@ -1,5 +1,3 @@
-import { Mail, CheckCircle, ArrowRight } from "lucide-react";
-
 export default function App() {
   const services = [
     "B2B Appointment Setting",
@@ -34,24 +32,21 @@ export default function App() {
           High-quality B2B lead generation & appointment setting for the Australian market.
         </p>
 
-        <div className="mt-8">
-          <a
-            href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
-            className="bg-orange-500 text-white px-6 py-3 rounded-full inline-flex items-center gap-2"
-          >
-            Get Started <ArrowRight size={18} />
-          </a>
-        </div>
+        <a
+          href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
+          className="mt-8 inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-full"
+        >
+          Get Started
+        </a>
       </section>
 
       {/* SERVICES */}
       <section className="px-6 py-20">
-        <h2 className="text-3xl font-semibold text-center">Services</h2>
+        <h2 className="text-3xl text-center font-semibold">Services</h2>
 
         <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
           {services.map((s, i) => (
             <div key={i} className="p-6 bg-white rounded-xl shadow">
-              <CheckCircle className="text-orange-500 mb-2" />
               {s}
             </div>
           ))}
@@ -60,7 +55,7 @@ export default function App() {
 
       {/* INDUSTRIES */}
       <section className="px-6 py-20 bg-white">
-        <h2 className="text-3xl font-semibold text-center">Industries</h2>
+        <h2 className="text-3xl text-center font-semibold">Industries</h2>
 
         <div className="flex flex-wrap justify-center gap-3 mt-8">
           {industries.map((ind, i) => (
@@ -79,7 +74,7 @@ export default function App() {
           href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
           className="mt-6 inline-flex items-center gap-2 bg-orange-500 px-6 py-3 rounded-full"
         >
-          <Mail size={18} /> Send Email
+          Send Email
         </a>
       </section>
 
