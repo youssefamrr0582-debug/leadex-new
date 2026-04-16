@@ -20,40 +20,41 @@ export default function App() {
 
         <div className="links">
           <button onClick={() => scrollTo("services")}>Services</button>
-          <button onClick={() => scrollTo("industries")}>Industries</button>
           <button onClick={() => scrollTo("process")}>Process</button>
         </div>
 
         <button className="cta" onClick={() => setOpen(true)}>
-          Contact Us
+          Contact
         </button>
       </header>
 
       {/* HERO */}
       <section className="hero">
-        <h1>
-          High-Performance <span>B2B Appointment Setting</span> Agency
+        <div className="glow"></div>
+
+        <h1 className="fadeIn">
+          High-Performance <span>B2B Growth System</span>
         </h1>
 
-        <p>
-          We help B2B companies connect with real decision-makers and generate qualified sales opportunities through structured outbound systems.
+        <p className="fadeIn delay1">
+          We help companies generate qualified meetings with real decision-makers through structured outbound systems.
         </p>
 
-        <button className="primary" onClick={() => setOpen(true)}>
-          Get in Touch
+        <button className="primary fadeIn delay2" onClick={() => setOpen(true)}>
+          Get Started
         </button>
       </section>
 
       {/* SERVICES */}
       <section id="services" className="section">
-        <h2>What We Deliver</h2>
+        <h2>What We Do</h2>
 
         <div className="grid">
           {[
-            ["Appointment Setting", "We book qualified meetings with real decision-makers."],
-            ["Outbound Campaigns", "Structured cold calling & outreach systems."],
-            ["Lead Qualification", "Filtering and qualifying real sales opportunities."],
-            ["Pipeline Generation", "Building predictable revenue pipelines."]
+            ["Appointment Setting", "We book qualified meetings with decision-makers."],
+            ["Cold Outreach", "High-performance outbound calling campaigns."],
+            ["Lead Qualification", "We filter and deliver real opportunities."],
+            ["Pipeline Building", "We build predictable revenue systems."]
           ].map((s, i) => (
             <div key={i} className="card">
               <h3>{s[0]}</h3>
@@ -65,14 +66,14 @@ export default function App() {
 
       {/* PROCESS */}
       <section id="process" className="section">
-        <h2>How We Work</h2>
+        <h2>How It Works</h2>
 
         <div className="grid">
           {[
-            ["1. Discovery", "We understand your business & ICP."],
-            ["2. Setup", "We build scripts, lists & strategy."],
-            ["3. Execution", "We run outbound campaigns daily."],
-            ["4. Delivery", "You receive qualified meetings."]
+            ["Strategy", "Define ICP & targeting"],
+            ["Setup", "Scripts & systems"],
+            ["Execution", "Outbound campaigns"],
+            ["Delivery", "Qualified meetings"]
           ].map((p, i) => (
             <div key={i} className="card">
               <h3>{p[0]}</h3>
@@ -89,24 +90,24 @@ export default function App() {
         <div className="modal">
           <div className="box">
 
-            <h2>Let’s Work Together</h2>
-            <p>We usually respond within 1 hour.</p>
+            <h2>Let’s Talk</h2>
+            <p>We reply within 1 hour</p>
 
             <form action="https://formsubmit.co/info@lea-dex.com" method="POST">
 
-              <input type="text" name="name" placeholder="Full Name" required />
-              <input type="email" name="email" placeholder="Business Email" required />
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email" required />
 
               <select name="type" required>
-                <option value="">Select Inquiry Type</option>
-                <option value="lead">New Lead / Client</option>
-                <option value="business">Business Inquiry</option>
-                <option value="collaboration">Collaboration</option>
+                <option value="">Inquiry Type</option>
+                <option value="lead">New Client</option>
+                <option value="business">Business</option>
+                <option value="collab">Collaboration</option>
               </select>
 
-              <textarea name="message" placeholder="Tell us about your business or what you need..." required />
+              <textarea name="message" placeholder="Tell us about your needs..." required />
 
-              <button type="submit">Send Inquiry</button>
+              <button type="submit">Send</button>
             </form>
 
             <button className="close" onClick={() => setOpen(false)}>
@@ -121,96 +122,144 @@ export default function App() {
       <style>{`
         body {
           margin:0;
-          font-family: Arial;
-          background:#f7f7f5;
+          font-family: Inter, Arial;
+          background:#f6f7fb;
           color:#111;
         }
 
-        .app { max-width:1100px; margin:auto; padding:20px; }
+        .app {
+          max-width:1100px;
+          margin:auto;
+          padding:20px;
+        }
 
         /* NAV */
         .nav {
           display:flex;
           justify-content:space-between;
           align-items:center;
+          padding:10px 0;
         }
 
-        .logo { font-weight:900; font-size:22px; }
-        .logo span { color:#ff5a1f; }
+        .logo {
+          font-weight:800;
+          font-size:20px;
+        }
+
+        .logo span {
+          color:#ff5a1f;
+        }
 
         .links button {
           background:none;
           border:none;
           margin:0 10px;
-          cursor:pointer;
           color:#666;
+          cursor:pointer;
         }
 
         .cta {
-          background:#ff5a1f;
+          background:#111;
           color:white;
           border:none;
           padding:10px 14px;
-          border-radius:10px;
+          border-radius:12px;
           cursor:pointer;
         }
 
         /* HERO */
         .hero {
           text-align:center;
-          padding:90px 20px;
+          padding:120px 20px;
+          position:relative;
         }
 
         .hero h1 {
-          font-size:48px;
+          font-size:52px;
           font-weight:900;
+          letter-spacing:-1px;
         }
 
-        .hero span { color:#ff5a1f; }
+        .hero span {
+          color:#ff5a1f;
+        }
 
         .hero p {
-          max-width:700px;
-          margin:auto;
+          max-width:650px;
+          margin:20px auto;
           color:#666;
+          line-height:1.6;
         }
 
         .primary {
-          margin-top:20px;
           background:#ff5a1f;
           color:white;
           border:none;
-          padding:14px 18px;
-          border-radius:10px;
+          padding:14px 20px;
+          border-radius:14px;
           cursor:pointer;
           transition:0.3s;
         }
 
-        .primary:hover { transform:scale(1.05); }
+        .primary:hover {
+          transform:translateY(-3px);
+        }
 
-        /* SECTIONS */
+        /* GLOW */
+        .glow {
+          position:absolute;
+          width:600px;
+          height:600px;
+          background:rgba(255,90,31,0.08);
+          filter:blur(140px);
+          top:50%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          z-index:-1;
+          animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%,100% { transform:translate(-50%,-50%) }
+          50% { transform:translate(-50%,-60%) }
+        }
+
+        /* SECTION */
         .section {
-          margin-top:70px;
+          margin-top:90px;
           text-align:center;
         }
 
+        h2 {
+          font-size:28px;
+          margin-bottom:20px;
+        }
+
+        /* GRID */
         .grid {
           display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-          gap:15px;
-          margin-top:20px;
+          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+          gap:18px;
         }
 
         .card {
           background:white;
-          padding:18px;
-          border-radius:14px;
+          padding:20px;
+          border-radius:18px;
           border:1px solid #eee;
           transition:0.3s;
         }
 
         .card:hover {
-          transform:translateY(-6px);
+          transform:translateY(-8px);
           border-color:#ff5a1f;
+          box-shadow:0 20px 50px rgba(0,0,0,0.06);
+        }
+
+        .card p {
+          color:#666;
+          font-size:14px;
+          line-height:1.5;
         }
 
         /* MODAL */
@@ -226,8 +275,8 @@ export default function App() {
         .box {
           background:white;
           padding:25px;
-          border-radius:16px;
-          width:350px;
+          border-radius:18px;
+          width:360px;
         }
 
         input, textarea, select {
@@ -235,38 +284,51 @@ export default function App() {
           margin:8px 0;
           padding:10px;
           border:1px solid #ddd;
-          border-radius:8px;
+          border-radius:10px;
         }
 
         button[type="submit"] {
           width:100%;
-          padding:10px;
           background:#ff5a1f;
           color:white;
           border:none;
-          border-radius:8px;
+          padding:12px;
+          border-radius:10px;
           cursor:pointer;
         }
 
         .close {
           margin-top:10px;
-          background:#eee;
           width:100%;
           padding:10px;
           border:none;
-          border-radius:8px;
+          border-radius:10px;
+          background:#eee;
           cursor:pointer;
         }
 
-        footer {
-          text-align:center;
-          margin-top:50px;
-          color:#888;
+        /* ANIMATION */
+        .fadeIn {
+          opacity:0;
+          transform:translateY(20px);
+          animation:fadeIn 0.8s forwards;
         }
 
-        @media(max-width:600px){
-          .hero h1 { font-size:30px; }
+        .delay1 { animation-delay:0.2s; }
+        .delay2 { animation-delay:0.4s; }
+
+        @keyframes fadeIn {
+          to {
+            opacity:1;
+            transform:translateY(0);
+          }
+        }
+
+        /* MOBILE */
+        @media(max-width:768px){
+          .hero h1 { font-size:34px; }
           .links { display:none; }
+          .hero { padding:90px 15px; }
         }
       `}</style>
     </div>
