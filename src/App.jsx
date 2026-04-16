@@ -19,6 +19,29 @@ export default function App() {
     "SaaS",
   ];
 
+  const steps = [
+    {
+      title: "Define Your ICP",
+      desc: "We analyze your ideal customer profile and target market in detail.",
+    },
+    {
+      title: "Build Target List",
+      desc: "We collect verified decision-makers from your industry in the Australian market.",
+    },
+    {
+      title: "Multi-Channel Outreach",
+      desc: "Cold calls, emails, and LinkedIn outreach executed daily.",
+    },
+    {
+      title: "Qualify Leads",
+      desc: "We filter only high-intent prospects that match your criteria.",
+    },
+    {
+      title: "Book Meetings",
+      desc: "You receive ready-to-close appointments directly in your calendar.",
+    },
+  ];
+
   return (
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
@@ -65,6 +88,48 @@ export default function App() {
               }}
             >
               {s}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section style={{ padding: 70, background: "#111", color: "white" }}>
+        <h2 style={{ textAlign: "center" }}>How It Works</h2>
+
+        <div style={{ maxWidth: 800, margin: "40px auto" }}>
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                gap: 15,
+                marginBottom: 20,
+                padding: 20,
+                background: "#1a1a1a",
+                borderRadius: 12,
+              }}
+            >
+              <div
+                style={{
+                  minWidth: 35,
+                  height: 35,
+                  borderRadius: "50%",
+                  background: "orange",
+                  color: "#111",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: "bold",
+                }}
+              >
+                {i + 1}
+              </div>
+
+              <div>
+                <b style={{ color: "orange" }}>{step.title}</b>
+                <div style={{ color: "#ccc", marginTop: 5 }}>{step.desc}</div>
+              </div>
             </div>
           ))}
         </div>
