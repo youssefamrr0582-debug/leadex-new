@@ -1,102 +1,64 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-export default function App() {
-  const [open, setOpen] = useState(false);
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
+export default function WebsiteMockup() {
 
-  const phrases = [
-    "We Build Predictable Revenue Systems",
-    "AI-Enhanced B2B Outreach Engine",
-    "Decision-Maker Connection System"
-  ];
-
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  // AI-like rotating typing
   useEffect(() => {
-    let char = 0;
-    let current = phrases[index];
-
-    const type = setInterval(() => {
-      setText(current.slice(0, char));
-      char++;
-
-      if (char > current.length) {
-        clearInterval(type);
-
-        setTimeout(() => {
-          setIndex((prev) => (prev + 1) % phrases.length);
-        }, 1200);
-      }
-    }, 40);
-
-    return () => clearInterval(type);
-  }, [index]);
-
-  // scroll reveal
-  useEffect(() => {
-    const elements = document.querySelectorAll(".reveal");
+    const els = document.querySelectorAll(".reveal");
 
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) e.target.classList.add("active");
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
-    elements.forEach(el => obs.observe(el));
+    els.forEach(el => obs.observe(el));
   }, []);
 
   return (
     <div className="app">
 
-      {/* background */}
-      <div className="bg"></div>
-      <div className="gridGlow"></div>
+      {/* BACKGROUND */}
+      <div className="bg" />
+      <div className="grid" />
 
       {/* NAV */}
       <header className="nav reveal">
         <div className="logo">Lead<span>EX</span></div>
 
         <div className="links">
-          <button onClick={() => scrollTo("services")}>Services</button>
-          <button onClick={() => scrollTo("ai")}>Why AI</button>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
         </div>
 
-        <button className="cta" onClick={() => setOpen(true)}>
-          Contact
-        </button>
+        <button className="cta">Book Call</button>
       </header>
 
       {/* HERO */}
       <section className="hero reveal">
 
-        <h1 className="heroText">
-          {text}<span className="cursor">|</span>
+        <div className="glow" />
+
+        <h1>
+          We Build <span>Predictable B2B Revenue Systems</span>
         </h1>
 
         <p>
-          AI-powered outbound systems that connect you with real decision-makers and generate qualified B2B opportunities.
+          AI-assisted outbound systems that connect you with real decision-makers and generate high-quality sales meetings.
         </p>
 
-        <button className="primary" onClick={() => setOpen(true)}>
-          Start Growth
-        </button>
+        <button className="primary">Start Growth</button>
       </section>
 
-      {/* AI SECTION */}
-      <section id="ai" className="section reveal">
+      {/* SERVICES */}
+      <section id="services" className="section reveal">
+        <h2>Core Services</h2>
 
-        <h2>Why Our System Works</h2>
-
-        <div className="grid">
+        <div className="gridCards">
           {[
-            ["Data-Driven Targeting","We identify the exact decision-makers that matter."],
-            ["AI-Assisted Outreach","Messaging optimized for higher conversion rates."],
-            ["Human Execution Layer","Real trained agents for real conversations."],
-            ["Predictable Pipeline","Consistent monthly revenue flow."]
+            ["Appointment Setting","We book meetings with real decision-makers."],
+            ["Cold Outreach","High-performance B2B outbound systems."],
+            ["Lead Qualification","We filter only sales-ready opportunities."],
+            ["Pipeline Building","Predictable revenue engine setup."]
           ].map((s,i)=>(
             <div key={i} className="card">
               <h3>{s[0]}</h3>
@@ -106,21 +68,20 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="section reveal">
+      {/* PROCESS */}
+      <section id="process" className="section reveal">
+        <h2>How It Works</h2>
 
-        <h2>Core Services</h2>
-
-        <div className="grid">
+        <div className="gridCards">
           {[
-            ["Appointment Setting","We book meetings with real decision-makers."],
-            ["Cold Outreach","High-performance B2B calling systems."],
-            ["Lead Qualification","We filter and deliver sales-ready leads."],
-            ["Pipeline Building","Full outbound revenue system setup."]
-          ].map((s,i)=>(
+            ["1. Strategy","Define ICP & targeting"],
+            ["2. Setup","Scripts + systems"],
+            ["3. Execution","Outbound campaigns"],
+            ["4. Delivery","Qualified meetings"]
+          ].map((p,i)=>(
             <div key={i} className="card">
-              <h3>{s[0]}</h3>
-              <p>{s[1]}</p>
+              <h3>{p[0]}</h3>
+              <p>{p[1]}</p>
             </div>
           ))}
         </div>
@@ -128,10 +89,8 @@ export default function App() {
 
       {/* CTA */}
       <section className="cta reveal">
-        <h2>Ready to scale with AI-powered outreach?</h2>
-        <button className="primary" onClick={() => setOpen(true)}>
-          Contact Us
-        </button>
+        <h2>Ready to scale predictable revenue?</h2>
+        <button className="primary">Book Strategy Call</button>
       </section>
 
       {/* FOOTER */}
@@ -139,43 +98,12 @@ export default function App() {
         © {new Date().getFullYear()} LeadEX
       </footer>
 
-      {/* CONTACT */}
-      {open && (
-        <div className="modal">
-          <div className="box reveal">
-
-            <h2>Contact LeadEX</h2>
-
-            <form action="https://formsubmit.co/info@lea-dex.com" method="POST">
-
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
-
-              <select name="type">
-                <option>New Client</option>
-                <option>Business Inquiry</option>
-                <option>Collaboration</option>
-              </select>
-
-              <textarea name="message" placeholder="Tell us about your business..." />
-
-              <button type="submit">Send</button>
-            </form>
-
-            <button className="close" onClick={() => setOpen(false)}>
-              Close
-            </button>
-
-          </div>
-        </div>
-      )}
-
       {/* STYLE */}
       <style>{`
         body {
           margin:0;
-          font-family: Inter;
-          background:#0b0f19;
+          font-family: Inter, Arial;
+          background:#070b14;
           color:white;
         }
 
@@ -185,22 +113,27 @@ export default function App() {
           padding:20px;
         }
 
-        /* BACKGROUND AI STYLE */
+        /* AI BACKGROUND */
         .bg {
           position:fixed;
           inset:0;
-          background: radial-gradient(circle at 20% 20%, #ff5a1f20, transparent 40%),
-                      radial-gradient(circle at 80% 60%, #3b82f620, transparent 40%);
+          background:
+            radial-gradient(circle at 20% 20%, rgba(16,185,129,0.18), transparent 40%),
+            radial-gradient(circle at 80% 50%, rgba(59,130,246,0.14), transparent 45%),
+            radial-gradient(circle at 50% 100%, rgba(255,90,31,0.10), transparent 50%);
+          filter: blur(40px);
           z-index:-2;
         }
 
-        .gridGlow {
+        .grid {
           position:fixed;
           inset:0;
-          background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+          background-image:
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
           background-size:60px 60px;
           z-index:-1;
+          opacity:0.4;
         }
 
         /* NAV */
@@ -208,65 +141,88 @@ export default function App() {
           display:flex;
           justify-content:space-between;
           align-items:center;
+          padding:14px 0;
+          backdrop-filter: blur(12px);
+          position:sticky;
+          top:0;
         }
 
         .logo {
           font-weight:900;
-          font-size:22px;
+          font-size:20px;
         }
 
-        .logo span { color:#ff5a1f; }
+        .logo span { color:#10b981; }
 
-        .links button {
-          background:none;
-          border:none;
+        .links a {
+          margin:0 12px;
           color:#aaa;
-          margin:0 10px;
-          cursor:pointer;
+          text-decoration:none;
         }
+
+        .links a:hover { color:white; }
 
         .cta {
-          background:#ff5a1f;
+          background:#10b981;
           border:none;
           padding:10px 14px;
           border-radius:12px;
-          color:white;
+          color:black;
+          font-weight:700;
           cursor:pointer;
         }
 
         /* HERO */
         .hero {
           text-align:center;
-          padding:120px 20px;
+          padding:130px 20px;
+          position:relative;
         }
 
-        .heroText {
-          font-size:44px;
+        .hero h1 {
+          font-size:52px;
           font-weight:900;
+          line-height:1.1;
         }
 
-        .cursor {
-          animation:blink 1s infinite;
-        }
+        .hero span { color:#10b981; }
 
-        @keyframes blink {
-          50% { opacity:0; }
-        }
-
-        p {
+        .hero p {
+          max-width:720px;
+          margin:20px auto;
           color:#aaa;
-          max-width:700px;
-          margin:auto;
+          line-height:1.7;
         }
 
         .primary {
-          margin-top:20px;
-          background:#ff5a1f;
+          background:#10b981;
           border:none;
-          padding:14px 20px;
+          padding:14px 22px;
           border-radius:14px;
-          color:white;
+          font-weight:700;
           cursor:pointer;
+          transition:0.3s;
+        }
+
+        .primary:hover {
+          transform:translateY(-4px) scale(1.03);
+        }
+
+        .glow {
+          position:absolute;
+          width:500px;
+          height:500px;
+          background:rgba(16,185,129,0.15);
+          filter:blur(120px);
+          top:40%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%,100% { transform:translate(-50%,-50%); }
+          50% { transform:translate(-50%,-60%); }
         }
 
         /* SECTIONS */
@@ -275,35 +231,40 @@ export default function App() {
           text-align:center;
         }
 
-        .grid {
+        .gridCards {
           display:grid;
           grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
           gap:18px;
           margin-top:20px;
         }
 
-        /* GLASS CARDS */
+        /* CARDS (10/10 LOOK) */
         .card {
           background:rgba(255,255,255,0.05);
-          backdrop-filter: blur(10px);
-          border:1px solid rgba(255,255,255,0.1);
-          padding:20px;
-          border-radius:18px;
-          transition:0.3s;
+          border:1px solid rgba(255,255,255,0.08);
+          backdrop-filter: blur(14px);
+          padding:22px;
+          border-radius:20px;
+          transition:0.35s;
         }
 
         .card:hover {
-          transform:translateY(-10px) scale(1.02);
-          border-color:#ff5a1f;
+          transform:translateY(-12px) scale(1.03);
+          border-color:#10b981;
+          box-shadow:0 30px 80px rgba(0,0,0,0.3);
         }
 
-        .card p { color:#aaa; font-size:14px; }
+        .card p {
+          color:#aaa;
+          font-size:14px;
+          line-height:1.6;
+        }
 
-        /* REVEAL */
+        /* REVEAL ANIMATION */
         .reveal {
           opacity:0;
           transform:translateY(40px);
-          transition:0.9s ease;
+          transition:1s cubic-bezier(0.2,0.8,0.2,1);
         }
 
         .reveal.active {
@@ -311,55 +272,15 @@ export default function App() {
           transform:translateY(0);
         }
 
-        /* MODAL */
-        .modal {
-          position:fixed;
-          inset:0;
-          background:rgba(0,0,0,0.7);
-          display:flex;
-          justify-content:center;
-          align-items:center;
-        }
-
-        .box {
-          background:#111827;
-          padding:25px;
-          border-radius:18px;
-          width:360px;
-        }
-
-        input, textarea, select {
-          width:100%;
-          margin:8px 0;
-          padding:10px;
-          border-radius:10px;
-          border:none;
-          background:#1f2937;
-          color:white;
-        }
-
-        button[type="submit"] {
-          width:100%;
-          background:#ff5a1f;
-          border:none;
-          padding:12px;
-          border-radius:10px;
-          color:white;
-        }
-
-        .close {
-          margin-top:10px;
-          width:100%;
-          padding:10px;
-          background:#222;
-          border:none;
-          color:white;
-          border-radius:10px;
+        footer {
+          text-align:center;
+          margin-top:80px;
+          color:#666;
         }
 
         /* MOBILE */
         @media(max-width:768px){
-          .heroText { font-size:26px; }
+          .hero h1 { font-size:30px; }
           .links { display:none; }
         }
       `}</style>
