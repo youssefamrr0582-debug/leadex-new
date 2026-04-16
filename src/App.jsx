@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
+  const [open, setOpen] = useState(false);
+
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -23,7 +25,9 @@ export default function App() {
           <button onClick={() => scrollTo("process")}>Process</button>
         </div>
 
-        <button className="cta">Contact Us</button>
+        <button className="cta" onClick={() => setOpen(true)}>
+          Contact Us
+        </button>
       </header>
 
       {/* HERO */}
@@ -35,11 +39,13 @@ export default function App() {
         </h1>
 
         <p className="reveal delay1">
-          LeadEX is a performance-driven appointment setting agency that connects you with real decision-makers and books qualified sales meetings.
+          LeadEX helps B2B companies connect with real decision-makers, book qualified meetings, and scale predictable outbound revenue systems.
         </p>
 
         <div className="heroBtns reveal delay2">
-          <button className="primary">Contact Us</button>
+          <button className="primary" onClick={() => setOpen(true)}>
+            Contact Us
+          </button>
           <button className="secondary" onClick={() => scrollTo("services")}>
             Explore Services
           </button>
@@ -48,23 +54,28 @@ export default function App() {
 
       {/* RESULTS */}
       <section id="results" className="stats reveal">
-        <div><h2>10K+</h2><p>Monthly Calls</p></div>
-        <div><h2>Qualified</h2><p>Decision Makers</p></div>
-        <div><h2>100%</h2><p>B2B Focus</p></div>
-        <div><h2>&lt;1min</h2><p>Response Time</p></div>
+        <div><h2>10K+</h2><p>Monthly Outbound Calls</p></div>
+        <div><h2>High Quality</h2><p>Decision Makers Reached</p></div>
+        <div><h2>B2B Only</h2><p>Focused Targeting</p></div>
+        <div><h2>&lt;1min</h2><p>Lead Response Time</p></div>
       </section>
 
       {/* SERVICES */}
       <section id="services" className="section reveal">
-        <h2>Core Services</h2>
+        <h2>What We Do</h2>
+
+        <p className="subText">
+          We don’t just generate leads — we build complete outbound systems that create real sales opportunities for your business.
+        </p>
 
         <div className="grid">
           {[
-            ["Appointment Setting","We book sales meetings with real decision-makers."],
-            ["Cold Calling","High-quality outbound calling campaigns."],
-            ["Lead Qualification","We filter and qualify real opportunities."],
-            ["Decision Maker Outreach","Direct access to CEOs & managers."],
-            ["Pipeline Building","Full outbound revenue systems."],
+            ["Appointment Setting", "We book qualified meetings directly with decision-makers in your target industry."],
+            ["Cold Calling Campaigns", "High-performance outbound calling with trained agents and optimized scripts."],
+            ["Lead Qualification", "We filter out noise and deliver only real, sales-ready opportunities."],
+            ["Decision Maker Outreach", "Direct access to CEOs, founders, IT managers, and executives."],
+            ["Pipeline Building", "We help you build a consistent, scalable outbound revenue pipeline."],
+            ["Market Targeting", "We define your ideal customer profile and build targeted outreach lists."]
           ].map((s, i) => (
             <div key={i} className="card">
               <h3>{s[0]}</h3>
@@ -76,10 +87,10 @@ export default function App() {
 
       {/* INDUSTRIES */}
       <section id="industries" className="section reveal">
-        <h2>Industries</h2>
+        <h2>Industries We Work With</h2>
 
         <div className="tags">
-          {["SaaS","Cybersecurity","IT Services","Telecom","Logistics","Energy"].map((i, idx) => (
+          {["SaaS", "Cybersecurity", "IT Services", "Telecom", "Logistics", "Energy"].map((i, idx) => (
             <span key={idx}>{i}</span>
           ))}
         </div>
@@ -91,10 +102,10 @@ export default function App() {
 
         <div className="grid">
           {[
-            ["1. Strategy","Define ICP + targeting"],
-            ["2. Setup","Scripts + data + training"],
-            ["3. Execution","Outbound campaigns"],
-            ["4. Delivery","Booked qualified meetings"]
+            ["1. Strategy", "We define your ideal customer profile and targeting strategy."],
+            ["2. Setup", "We prepare scripts, data, and outbound systems."],
+            ["3. Execution", "We run daily outbound campaigns and calling operations."],
+            ["4. Delivery", "You receive qualified meetings with real decision-makers."]
           ].map((p, i) => (
             <div key={i} className="card">
               <h3>{p[0]}</h3>
@@ -107,28 +118,45 @@ export default function App() {
       {/* CTA */}
       <section className="cta reveal">
         <h2>Ready to scale predictable revenue?</h2>
-        <button className="primary">Contact Us</button>
+        <button className="primary" onClick={() => setOpen(true)}>
+          Contact Us
+        </button>
       </section>
 
       <footer>© {new Date().getFullYear()} LeadEX</footer>
 
+      {/* CONTACT MODAL */}
+      {open && (
+        <div className="modal">
+          <div className="modalBox">
+            <h3>Get in Touch</h3>
+            <p>We usually respond within 1 hour.</p>
+
+            <form action="https://formsubmit.co/info@lea-dex.com" method="POST">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
+              <textarea name="message" placeholder="Tell us about your project" required></textarea>
+
+              <button type="submit">Send Message</button>
+            </form>
+
+            <button className="close" onClick={() => setOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
       {/* STYLE */}
       <style>{`
-        * {
-          margin:0;
-          padding:0;
-          box-sizing:border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
-          background:#f4f1ea; /* REAL off-white premium */
+          background:#f4f1ea;
           color:#1a1a1a;
           font-family: Arial;
         }
 
         :root {
           --orange:#ff5a1f;
-          --card:#ffffff;
         }
 
         .app {
@@ -145,30 +173,17 @@ export default function App() {
           flex-wrap:wrap;
         }
 
-        .logo {
-          font-weight:800;
-          font-size:20px;
-        }
+        .logo { font-weight:800; font-size:20px; }
+        .logo span { color:var(--orange); }
 
-        .logo span {
-          color:var(--orange);
-        }
-
-        .links {
-          display:flex;
-          gap:12px;
-        }
-
+        .links { display:flex; gap:12px; }
         .links button {
           border:none;
           background:none;
           cursor:pointer;
           color:#666;
         }
-
-        .links button:hover {
-          color:var(--orange);
-        }
+        .links button:hover { color:var(--orange); }
 
         .cta {
           background:var(--orange);
@@ -176,7 +191,7 @@ export default function App() {
           border:none;
           padding:10px 14px;
           border-radius:10px;
-          font-weight:bold;
+          cursor:pointer;
         }
 
         /* HERO */
@@ -186,14 +201,8 @@ export default function App() {
           position:relative;
         }
 
-        .hero h1 {
-          font-size:44px;
-          line-height:1.2;
-        }
-
-        .hero span {
-          color:var(--orange);
-        }
+        .hero h1 { font-size:44px; }
+        .hero span { color:var(--orange); }
 
         .hero p {
           max-width:650px;
@@ -206,7 +215,6 @@ export default function App() {
           justify-content:center;
           gap:10px;
           margin-top:20px;
-          flex-wrap:wrap;
         }
 
         .primary {
@@ -220,7 +228,7 @@ export default function App() {
         }
 
         .primary:hover {
-          transform:translateY(-3px);
+          transform:translateY(-4px) scale(1.02);
         }
 
         .secondary {
@@ -231,7 +239,7 @@ export default function App() {
           cursor:pointer;
         }
 
-        /* 🔥 REAL PREMIUM BACKGROUND GLOW */
+        /* GLOW */
         .bgGlow {
           position:absolute;
           width:500px;
@@ -242,7 +250,7 @@ export default function App() {
           left:50%;
           transform:translate(-50%,-50%);
           z-index:-1;
-          animation: float 7s ease-in-out infinite;
+          animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -250,32 +258,13 @@ export default function App() {
           50% { transform:translate(-50%,-60%) }
         }
 
-        /* STATS */
-        .stats {
-          display:grid;
-          grid-template-columns:repeat(2,1fr);
-          text-align:center;
-          gap:10px;
-          margin-top:20px;
-        }
-
-        .stats h2 {
-          color:var(--orange);
-        }
-
-        .stats p {
-          font-size:12px;
-          color:#777;
-        }
-
         /* SECTIONS */
-        .section {
-          margin-top:70px;
-          text-align:center;
-        }
+        .section { margin-top:70px; text-align:center; }
 
-        .section h2 {
-          margin-bottom:18px;
+        .subText {
+          max-width:700px;
+          margin:10px auto 25px;
+          color:#666;
         }
 
         /* GRID */
@@ -302,39 +291,9 @@ export default function App() {
         .card p {
           font-size:13px;
           color:#666;
-          margin-top:6px;
         }
 
-        /* TAGS */
-        .tags {
-          display:flex;
-          justify-content:center;
-          flex-wrap:wrap;
-          gap:8px;
-        }
-
-        .tags span {
-          background:white;
-          padding:8px 12px;
-          border-radius:10px;
-          border:1px solid #eee;
-          font-size:12px;
-        }
-
-        /* CTA */
-        .cta {
-          text-align:center;
-          margin-top:80px;
-        }
-
-        footer {
-          text-align:center;
-          margin-top:40px;
-          font-size:12px;
-          color:#888;
-        }
-
-        /* 🔥 REAL ANIMATION SYSTEM */
+        /* ANIMATION */
         .reveal {
           opacity:0;
           transform:translateY(20px);
@@ -345,13 +304,65 @@ export default function App() {
         .delay2 { animation-delay:0.4s; }
 
         @keyframes reveal {
-          to {
-            opacity:1;
-            transform:translateY(0);
-          }
+          to { opacity:1; transform:translateY(0); }
         }
 
-        /* MOBILE */
+        /* MODAL */
+        .modal {
+          position:fixed;
+          top:0; left:0;
+          width:100%; height:100%;
+          background:rgba(0,0,0,0.6);
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+
+        .modalBox {
+          background:white;
+          padding:25px;
+          border-radius:16px;
+          width:320px;
+          animation: pop 0.3s ease;
+        }
+
+        .modalBox input,
+        .modalBox textarea {
+          width:100%;
+          margin:8px 0;
+          padding:10px;
+          border-radius:8px;
+          border:1px solid #ddd;
+        }
+
+        .modalBox button {
+          width:100%;
+          padding:10px;
+          background:var(--orange);
+          color:white;
+          border:none;
+          border-radius:8px;
+          cursor:pointer;
+        }
+
+        .close {
+          margin-top:10px;
+          background:#eee;
+          color:#000;
+        }
+
+        @keyframes pop {
+          from { transform:scale(0.9); opacity:0; }
+          to { transform:scale(1); opacity:1; }
+        }
+
+        footer {
+          text-align:center;
+          margin-top:40px;
+          font-size:12px;
+          color:#888;
+        }
+
         @media(max-width:600px){
           .hero h1 { font-size:28px; }
           .links { display:none; }
