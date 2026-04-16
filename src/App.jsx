@@ -20,59 +20,69 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-black">
+    <div style={{ fontFamily: "Arial" }}>
 
-      {/* HERO */}
-      <section className="px-6 py-24 text-center">
-        <h1 className="text-5xl font-bold">
-          Lead<span className="text-orange-500">EX</span>
+      <section style={{ padding: "80px 20px", textAlign: "center", background: "#f7f4ee" }}>
+        <h1 style={{ fontSize: 50 }}>
+          Lead<span style={{ color: "orange" }}>EX</span>
         </h1>
 
-        <p className="mt-6 text-gray-700 max-w-2xl mx-auto">
+        <p style={{ maxWidth: 600, margin: "20px auto", color: "#444" }}>
           High-quality B2B lead generation & appointment setting for the Australian market.
         </p>
 
         <a
           href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
-          className="mt-8 inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-full"
+          style={{
+            background: "orange",
+            color: "white",
+            padding: "12px 25px",
+            borderRadius: 25,
+            textDecoration: "none",
+            display: "inline-block",
+            marginTop: 20,
+          }}
         >
           Get Started
         </a>
       </section>
 
-      {/* SERVICES */}
-      <section className="px-6 py-20">
-        <h2 className="text-3xl text-center font-semibold">Services</h2>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
+        <h2>Services</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10 }}>
           {services.map((s, i) => (
-            <div key={i} className="p-6 bg-white rounded-xl shadow">
+            <div key={i} style={{ padding: 15, border: "1px solid #ddd", borderRadius: 10 }}>
               {s}
             </div>
           ))}
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section className="px-6 py-20 bg-white">
-        <h2 className="text-3xl text-center font-semibold">Industries</h2>
-
-        <div className="flex flex-wrap justify-center gap-3 mt-8">
+      <section style={{ padding: "60px 20px", textAlign: "center", background: "#fff" }}>
+        <h2>Industries</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10 }}>
           {industries.map((ind, i) => (
-            <span key={i} className="px-4 py-2 bg-[#f7f4ee] rounded-full text-sm">
+            <span key={i} style={{ padding: "8px 15px", background: "#f7f4ee", borderRadius: 20 }}>
               {ind}
             </span>
           ))}
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section className="px-6 py-20 text-center bg-black text-white">
-        <h2 className="text-3xl font-semibold">Contact Us</h2>
+      <section style={{ padding: "60px 20px", textAlign: "center", background: "#111", color: "white" }}>
+        <h2>Contact Us</h2>
 
         <a
           href="mailto:info@lea-dex.com?subject=LeadEX Inquiry"
-          className="mt-6 inline-flex items-center gap-2 bg-orange-500 px-6 py-3 rounded-full"
+          style={{
+            marginTop: 20,
+            display: "inline-block",
+            background: "orange",
+            padding: "12px 25px",
+            borderRadius: 25,
+            color: "white",
+            textDecoration: "none",
+          }}
         >
           Send Email
         </a>
