@@ -1,6 +1,30 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function App() {
+
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      formRef.current,
+      "YOUR_PUBLIC_KEY"
+    ).then(
+      () => {
+        alert("Message sent successfully 🚀");
+      },
+      () => {
+        alert("Failed to send message");
+      }
+    );
+
+    e.target.reset();
+  };
 
   const services = [
     "B2B Appointment Setting",
@@ -23,36 +47,24 @@ export default function App() {
   ];
 
   const steps = [
-    { title: "Define ICP", desc: "We identify your ideal customers in the Australian market." },
-    { title: "Build List", desc: "We source verified decision-makers in your niche." },
-    { title: "Outreach", desc: "Cold calls, emails, and LinkedIn outreach daily." },
-    { title: "Qualify Leads", desc: "We filter only high-intent prospects." },
-    { title: "Book Meetings", desc: "Face-to-face, video, or call meetings with buyers." },
+    { title: "Define ICP", desc: "We identify your ideal customers in Australia." },
+    { title: "Build List", desc: "We source verified decision-makers." },
+    { title: "Outreach", desc: "Calls, emails, LinkedIn outreach daily." },
+    { title: "Qualify Leads", desc: "Only high-intent prospects are passed." },
+    { title: "Book Meetings", desc: "Face-to-face, video, or call meetings." },
   ];
 
-  const container = {
-    maxWidth: 1100,
-    margin: "auto",
-    padding: "0 20px",
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: i * 0.1,
-        ease: "easeOut",
-      },
-    }),
+  const inputStyle = {
+    padding: 12,
+    borderRadius: 8,
+    border: "none",
+    outline: "none",
   };
 
   return (
     <div style={{ fontFamily: "Arial", background: "#f7f4ee", color: "#111" }}>
 
-      {/* TOP BRAND */}
+      {/* BRAND */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -63,119 +75,88 @@ export default function App() {
 
       {/* HERO */}
       <motion.section
-        initial="hidden"
-        animate="show"
-        variants={fadeUp}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
         style={{ padding: "80px 20px", textAlign: "center" }}
       >
-        <div style={container}>
+        <h1 style={{ fontSize: "clamp(34px, 6vw, 58px)" }}>
+          Lead<span style={{ color: "orange" }}>EX</span>
+        </h1>
 
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            style={{ fontSize: "clamp(34px, 6vw, 58px)", marginBottom: 10 }}
-          >
-            Lead<span style={{ color: "orange" }}>EX</span>
-          </motion.h1>
+        <h3 style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}>
+          Turn Conversations into Conversions
+        </h3>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{ fontWeight: "normal", color: "#444", marginBottom: 20 }}
-          >
-            Turn Conversations into Conversions
-          </motion.h3>
+        <p style={{ maxWidth: 850, margin: "auto", color: "#666", lineHeight: 1.6 }}>
+          We deliver qualified B2B meetings with real decision-makers in Australia —
+          including face-to-face meetings, video conferences, and sales calls.
+        </p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            style={{ color: "#666", fontSize: 16, lineHeight: 1.6, maxWidth: 850, margin: "auto" }}
-          >
-            We deliver qualified B2B meetings with real decision-makers in the Australian market —
-            including face-to-face meetings, video conferences, and structured sales calls.
-          </motion.p>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            href="#contact"
-            style={{
-              display: "inline-block",
-              marginTop: 25,
-              background: "orange",
-              color: "white",
-              padding: "14px 30px",
-              borderRadius: 30,
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-          >
-            Book Qualified Meetings
-          </motion.a>
-
-        </div>
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          href="#contact"
+          style={{
+            display: "inline-block",
+            marginTop: 25,
+            background: "orange",
+            color: "white",
+            padding: "14px 30px",
+            borderRadius: 30,
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Book Qualified Meetings
+        </motion.a>
       </motion.section>
 
       {/* WHAT WE DO */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
-        <div style={container}>
+        <h2>What We Do</h2>
 
-          <h2 style={{ fontSize: 32 }}>What We Do</h2>
-
-          <p style={{ color: "#666", maxWidth: 700, margin: "10px auto 40px" }}>
-            We build predictable pipelines with real buyers, not random leads.
-          </p>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: 15,
-          }}>
-            {services.map((s, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03 }}
-                style={{
-                  background: "white",
-                  padding: 16,
-                  borderRadius: 12,
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-                  textAlign: "left",
-                }}
-              >
-                {s}
-              </motion.div>
-            ))}
-          </div>
-
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 15,
+          maxWidth: 1000,
+          margin: "40px auto"
+        }}>
+          {services.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                background: "white",
+                padding: 16,
+                borderRadius: 12,
+                boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                textAlign: "left",
+              }}
+            >
+              {s}
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* HOW IT WORKS */}
       <section style={{ padding: "70px 20px", background: "#111", color: "white" }}>
-        <div style={container}>
+        <h2 style={{ textAlign: "center" }}>How It Works</h2>
 
-          <h2 style={{ textAlign: "center", marginBottom: 40 }}>
-            How It Works
-          </h2>
-
+        <div style={{ maxWidth: 900, margin: "40px auto" }}>
           {steps.map((step, i) => (
             <motion.div
               key={i}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               style={{
                 display: "flex",
                 gap: 12,
@@ -183,22 +164,19 @@ export default function App() {
                 padding: 18,
                 background: "#1a1a1a",
                 borderRadius: 12,
-                flexWrap: "wrap",
               }}
             >
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: "50%",
-                  background: "orange",
-                  color: "#111",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "bold",
-                }}
-              >
+              <div style={{
+                width: 32,
+                height: 32,
+                borderRadius: "50%",
+                background: "orange",
+                color: "#111",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "bold",
+              }}>
                 {i + 1}
               </div>
 
@@ -210,14 +188,12 @@ export default function App() {
               </div>
             </motion.div>
           ))}
-
         </div>
       </section>
 
       {/* INDUSTRIES */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
-        <div style={container}>
-
+        <div style={{ maxWidth: 1000, margin: "auto" }}>
           <h2>Industries We Work With</h2>
 
           <div style={{
@@ -243,7 +219,6 @@ export default function App() {
               </motion.span>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -254,24 +229,13 @@ export default function App() {
           <h2 style={{ textAlign: "center" }}>Contact Us</h2>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-
-              const name = e.target.name.value;
-              const email = e.target.email.value;
-              const message = e.target.message.value;
-
-              const mailto =
-                `mailto:info@lea-dex.com?subject=LeadEX Inquiry from ${name}&body=` +
-                `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-
-              window.location.href = mailto;
-            }}
+            ref={formRef}
+            onSubmit={sendEmail}
             style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 20 }}
           >
-            <input name="name" placeholder="Your Name" required style={{ padding: 12, borderRadius: 8 }} />
-            <input name="email" placeholder="Your Email" required style={{ padding: 12, borderRadius: 8 }} />
-            <textarea name="message" placeholder="Your Message" rows="5" required style={{ padding: 12, borderRadius: 8 }} />
+            <input name="name" placeholder="Your Name" required style={inputStyle} />
+            <input name="email" placeholder="Your Email" required style={inputStyle} />
+            <textarea name="message" placeholder="Your Message" rows="5" required style={inputStyle} />
 
             <motion.button
               whileHover={{ scale: 1.05 }}
